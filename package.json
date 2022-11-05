@@ -1,8 +1,14 @@
 {
     "name": "@poolofdeath20/eslint-config",
     "description": "My ESLint shareable config",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "license": "MIT",
+    "files": [
+        "build"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
     "exports": {
         "./all": {
             "require": "./build/cjs/all/index.js",
