@@ -1,7 +1,7 @@
 {
     "name": "@poolofdeath20/eslint-config",
     "description": "My ESLint shareable config",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "license": "MIT",
     "files": [
         "build"
@@ -70,6 +70,7 @@
         "eslint": ">=8",
         "eslint-plugin-jsx-a11y": "*",
         "eslint-plugin-react": "*",
-        "eslint-plugin-styled-components-a11y": "*"
+        "eslint-plugin-styled-components-a11y": "*",
+        "eslint-plugin-import": "*"
     }
 }
