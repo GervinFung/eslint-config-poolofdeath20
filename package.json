@@ -1,48 +1,48 @@
 {
-    "name": "linmat",
-    "description": "PoolOfDeath20 eslint and prettier util",
-    "version": "0.2.0",
-    "license": "MIT",
-    "exports": {
-        "./react": {
-            "require": "./build/cjs/react/index.js"
-        },
-        "./node": {
-            "require": "./build/cjs/node/index.js"
-        }
-    },
-    "bin": {
-        "linmat-lint": "./bin/lint.cjs",
-        "linmat-format": "./bin/format.cjs"
-    },
-    "scripts": {
-        "postinstall": "pnpm build",
-        "lint": "node bin/lint.cjs",
-        "format-write": "node bin/format.cjs --write",
-        "format-check": "node bin/format.cjs --check",
-        "postbuild-cjs": "vite-node script/cjs-module-exports.ts",
-        "build": "rm -rf build && tsc -p tsconfig.cjs.json && pnpm postbuild-cjs && pnpm postbuild",
-        "postbuild": "shx chmod +x bin/lint.cjs && shx chmod +x bin/format.cjs",
-        "test": "vitest"
-    },
-    "dependencies": {
-        "@types/eslint": "^8.44.2",
-        "@types/node": "^18.17.3",
-        "@typescript-eslint/eslint-plugin": "^5.62.0",
-        "@typescript-eslint/parser": "^5.62.0",
-        "eslint": "^8.46.0",
-        "prettier": "^3.0.1",
-        "shx": "^0.3.4",
-        "ts-add-js-extension": "^1.5.8",
-        "typescript": "^5.1.6",
-        "vite-node": "^0.34.1",
-        "vitest": "^0.24.5"
-    },
-    "peerDependencies": {
-        "@typescript-eslint/eslint-plugin": "*",
-        "@typescript-eslint/parser": "*",
-        "eslint-plugin-import": "*",
-        "eslint-plugin-jsx-a11y": "*",
-        "eslint-plugin-react": "*"
-    }
+	"name": "linmat",
+	"description": "PoolOfDeath20 eslint and prettier util",
+	"version": "0.3.1",
+	"license": "MIT",
+	"exports": {
+		"./react": {
+			"require": "./build/cjs/react/index.js"
+		},
+		"./node": {
+			"require": "./build/cjs/node/index.js"
+		}
+	},
+	"bin": {
+		"linmat-lint": "./bin/lint.cjs",
+		"linmat-format": "./bin/format.cjs"
+	},
+	"scripts": {
+		"postinstall": "pnpm build",
+		"lint": "node bin/lint.cjs",
+		"format-write": "node bin/format.cjs --write",
+		"format-check": "node bin/format.cjs --check",
+		"postbuild-cjs": "vite-node script/cjs-module-exports.ts",
+		"build": "rm -rf build && tsc -p tsconfig.cjs.json && pnpm postbuild-cjs && pnpm postbuild",
+		"postbuild": "shx chmod +x bin/lint.cjs && shx chmod +x bin/format.cjs",
+		"test": "vitest"
+	},
+	"dependencies": {
+		"@types/eslint": "^8.44.2",
+		"@types/node": "^18.17.3",
+		"@typescript-eslint/eslint-plugin": "^5.62.0",
+		"@typescript-eslint/parser": "^5.62.0",
+		"eslint": "^8.46.0",
+		"prettier": "^3.0.1",
+		"shx": "^0.3.4",
+		"ts-add-js-extension": "^1.5.8",
+		"typescript": "^5.1.6",
+		"vite-node": "^0.34.1",
+		"vitest": "^0.24.5"
+	},
+	"peerDependencies": {
+		"@typescript-eslint/eslint-plugin": "*",
+		"@typescript-eslint/parser": "*",
+		"eslint-plugin-import": "*",
+		"eslint-plugin-jsx-a11y": "*",
+		"eslint-plugin-react": "*"
+	}
 }

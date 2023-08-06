@@ -1,3 +1,7 @@
+## 0.3.1 (6 August 2023)
+
+-   (Fix) Update `prettier` config
+
 ## 0.3.0 (6 August 2023)
 
 -   (Feat) Generate `.prettierrc`
