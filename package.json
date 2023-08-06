@@ -1,6 +1,6 @@
 {
-    "name": "@poolofdeath20/lint-format",
-    "description": "My eslint and prettier util",
+    "name": "@poolofdeath20/linmat",
+    "description": "PoolOfDeath20 eslint and prettier util",
     "version": "0.2.0",
     "license": "MIT",
     "exports": {
@@ -14,17 +14,18 @@
         }
     },
     "bin": {
-        "lint-format": "./build/cjs/bin.js"
+        "poolofdeath20-lint": "./build/cjs/bin/lint.js",
+        "poolofdeath20-format": "./build/cjs/bin/format.js"
     },
     "scripts": {
-        "lint": "vite-node src/bin/index.ts --  lint",
-        "format-write": "vite-node src/bin/index.ts --  format --write",
-        "format-check": "vite-node src/bin/index.ts --  format --check",
+        "lint": "vite-node src/bin/lint.ts",
+        "format-write": "vite-node src/bin/format.ts -- --write",
+        "format-check": "vite-node src/bin/format.ts -- --check",
         "build-mjs": "tsc -p tsconfig.mjs.json && ts-add-js-extension add --dir=build/mjs",
-        "build-cjs": "tsc -p tsconfig.cjs.json && pnpm postbuild-cjs",
+        "build-cjs": "tsc -p tsconfig.cjs.json",
         "postbuild-cjs": "vite-node script/cjs-module-exports.ts",
         "build": "rm -rf build && pnpm build-cjs && pnpm build-mjs && node-package-helper && pnpm postbuild",
-        "postbuild": "shx chmod +x build/cjs/bin/index.js",
+        "postbuild": "shx chmod +x build/cjs/bin/lint.js && shx chmod +x build/cjs/bin/format.js",
         "test": "vitest"
     },
     "dependencies": {
