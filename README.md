@@ -16,7 +16,6 @@ Then install along its peer dependencies
 
 ```sh
 pnpm/npm/yarn add -D \
-  eslint-plugin-styled-components-a11y \
   eslint-plugin-react \
   eslint-plugin-jsx-a11y \
   eslint \
