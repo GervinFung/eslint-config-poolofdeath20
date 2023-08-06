@@ -1,6 +1,6 @@
 {
-    "name": "@poolofdeath20/eslint-config",
-    "description": "My ESLint shareable config",
+    "name": "@poolofdeath20/lint-format",
+    "description": "My eslint and prettier util",
     "version": "0.2.0",
     "license": "MIT",
     "exports": {
@@ -14,18 +14,17 @@
         }
     },
     "bin": {
-        "ts-add-js-extension": "./build/cjs/bin.js"
+        "lint-format": "./build/cjs/bin.js"
     },
     "scripts": {
-        "lint": "vite-node src/bin/lint.ts",
-        "format": "pnpm prettier --ignore-path .gitignore **/*.{ts,json,md}",
-        "format-write": "pnpm format --write",
-        "format-check": "pnpm format --check",
+        "lint": "vite-node src/bin/index.ts --  lint",
+        "format-write": "vite-node src/bin/index.ts --  format --write",
+        "format-check": "vite-node src/bin/index.ts --  format --check",
         "build-mjs": "tsc -p tsconfig.mjs.json && ts-add-js-extension add --dir=build/mjs",
         "build-cjs": "tsc -p tsconfig.cjs.json && pnpm postbuild-cjs",
         "postbuild-cjs": "vite-node script/cjs-module-exports.ts",
         "build": "rm -rf build && pnpm build-cjs && pnpm build-mjs && node-package-helper && pnpm postbuild",
-        "postbuild": "shx chmod +x build/cjs/bin/lint.js",
+        "postbuild": "shx chmod +x build/cjs/bin/index.js",
         "test": "vitest"
     },
     "dependencies": {
@@ -34,6 +33,7 @@
         "@typescript-eslint/eslint-plugin": "^5.62.0",
         "@typescript-eslint/parser": "^5.62.0",
         "node-package-helper": "github:GervinFung/node-package-helper",
+        "prettier": "^3.0.1",
         "shx": "^0.3.4",
         "ts-add-js-extension": "^1.5.8",
         "typescript": "^4.9.5",
@@ -41,8 +41,7 @@
         "vitest": "^0.24.5"
     },
     "devDependencies": {
-        "eslint": "^8.46.0",
-        "prettier": "^2.8.8"
+        "eslint": "^8.46.0"
     },
     "peerDependencies": {
         "@typescript-eslint/eslint-plugin": "*",

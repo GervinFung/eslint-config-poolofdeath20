@@ -28,29 +28,25 @@ const getAllFilesToLint = (
             : [filePath];
     });
 
-const main = async () => {
-    try {
-        const eslint = new ESLint();
+const lint = async () => {
+    const eslint = new ESLint();
 
-        const results = await eslint.lintFiles(
-            getAllFilesToLint({
-                toRead: process.cwd(),
-                toIgnore: fs
-                    .readFileSync('.gitignore', { encoding: 'utf-8' })
-                    .replace('**', '')
-                    .split('\n')
-                    .filter(Boolean),
-            })
-        );
+    const results = await eslint.lintFiles(
+        getAllFilesToLint({
+            toRead: process.cwd(),
+            toIgnore: fs
+                .readFileSync('.gitignore', { encoding: 'utf-8' })
+                .replace('**', '')
+                .split('\n')
+                .filter(Boolean),
+        })
+    );
 
-        const formatter = await eslint.loadFormatter('stylish');
+    const formatter = await eslint.loadFormatter('stylish');
 
-        const resultText = await formatter.format(results);
+    const resultText = await formatter.format(results);
 
-        console.log(resultText || 'All Good');
-    } catch (error) {
-        console.error(error);
-    }
+    console.log(resultText || 'All Good');
 };
 
-main();
+export default lint;

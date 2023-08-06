@@ -22,7 +22,7 @@ const main = () => {
             ({
                 file,
                 code: readCode(file),
-            } as const)
+            }) as const
     );
 
     const nodeType = Eslint.AST_NODE_TYPES;
