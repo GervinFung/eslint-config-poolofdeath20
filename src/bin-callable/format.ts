@@ -1,5 +1,6 @@
-import childProcess from 'child_process';
+import fs from 'fs';
 import path from 'path';
+import childProcess from 'child_process';
 
 const format = (args: ReadonlyArray<string>) => {
     try {
@@ -12,6 +13,17 @@ const format = (args: ReadonlyArray<string>) => {
                 childProcess.execSync(`${command} ${type}`, {
                     stdio: 'inherit',
                 });
+                break;
+            }
+            case '--generate': {
+                fs.writeFileSync(
+                    './.prettierrc',
+                    JSON.stringify(
+                        require('../../.prettierrc.json'),
+                        undefined,
+                        4
+                    )
+                );
                 break;
             }
             default: {

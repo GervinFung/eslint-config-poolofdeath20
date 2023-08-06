@@ -1,3 +1,7 @@
+## 0.3.0 (6 August 2023)
+
+-   (Feat) Generate `.prettierrc`
+
 ## 0.2.0 (6 August 2023)
 
 -   (Feat) Created an binary file to run linter through JavaScript API
