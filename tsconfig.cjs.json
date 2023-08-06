@@ -1,8 +1,16 @@
 {
-    "extends": "./tsconfig.js.json",
+    "extends": "./tsconfig.json",
     "compilerOptions": {
-        "module": "CommonJS",
-        "outDir": "build/cjs",
-        "target": "ES5"
-    }
+        "module": "commonjs",
+        "verbatimModuleSyntax": false,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "outDir": "build",
+        "target": "es5",
+        "noEmit": false,
+        "declaration": true,
+        "declarationMap": false,
+        "sourceMap": true
+    },
+    "include": ["src"]
 }

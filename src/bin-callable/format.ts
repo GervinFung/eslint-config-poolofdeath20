@@ -23,4 +23,4 @@ const format = (args: ReadonlyArray<string>) => {
     }
 };
 
-format(process.argv.slice(2));
+export default format;
