@@ -13,10 +13,6 @@
             "import": "./build/mjs/node/index.js"
         }
     },
-    "bin": {
-        "poolofdeath20-lint": "./build/cjs/bin/lint.js",
-        "poolofdeath20-format": "./build/cjs/bin/format.js"
-    },
     "scripts": {
         "postinstall": "pnpm build",
         "lint": "vite-node src/bin/lint.ts",
@@ -28,6 +24,10 @@
         "build": "rm -rf build && pnpm build-cjs && pnpm build-mjs && node-package-helper && pnpm postbuild",
         "postbuild": "shx chmod +x build/cjs/bin/lint.js && shx chmod +x build/cjs/bin/format.js",
         "test": "vitest"
+    },
+    "bin": {
+        "poolofdeath20-lint": "./build/cjs/bin/lint.js",
+        "poolofdeath20-format": "./build/cjs/bin/format.js"
     },
     "dependencies": {
         "@types/eslint": "^8.44.2",
