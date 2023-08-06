@@ -21,19 +21,19 @@ pnpm/npm/yarn add -D \
 
 ```jsonc
 {
-    "root": true,
-    "extends": ["@poolofdeath20/eslint-config/node"],
-    "rules": {
-        // Additional rules as you see fit
-    },
-    "overrides": [
-        {
-            "files": ["**/*.ts"], // or ["**/*.js"]
-            "rules": {
-                //...rules
-            }
-        }
-    ]
+	"root": true,
+	"extends": ["@poolofdeath20/eslint-config/node"],
+	"rules": {
+		// Additional rules as you see fit
+	},
+	"overrides": [
+		{
+			"files": ["**/*.ts"], // or ["**/*.js"]
+			"rules": {
+				//...rules
+			}
+		}
+	]
 }
 ```
 

@@ -1,3 +1,7 @@
+## 0.3.2 (6 August 2023)
+
+-   (Fix) Allow proper import of eslint config
+
 ## 0.3.1 (6 August 2023)
 
 -   (Fix) Update `prettier` config
