@@ -12,8 +12,8 @@
         }
     },
     "bin": {
-        "linmat-lint": "./bin/lint.js",
-        "linmat-format": "./bin/format.js"
+        "linmat-lint": "./bin/lint.cjs",
+        "linmat-format": "./bin/format.cjs"
     },
     "scripts": {
         "postinstall": "pnpm build",
