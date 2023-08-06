@@ -18,6 +18,7 @@
         "poolofdeath20-format": "./build/cjs/bin/format.js"
     },
     "scripts": {
+        "postinstall": "pnpm build",
         "lint": "vite-node src/bin/lint.ts",
         "format-write": "vite-node src/bin/format.ts -- --write",
         "format-check": "vite-node src/bin/format.ts -- --check",
