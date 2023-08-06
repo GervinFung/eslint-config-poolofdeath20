@@ -34,7 +34,7 @@
         "@types/node": "^18.17.3",
         "@typescript-eslint/eslint-plugin": "^5.62.0",
         "@typescript-eslint/parser": "^5.62.0",
-        "node-package-helper": "github:GervinFung/node-package-helper",
+        "eslint": "^8.46.0",
         "prettier": "^3.0.1",
         "shx": "^0.3.4",
         "ts-add-js-extension": "^1.5.8",
@@ -42,13 +42,9 @@
         "vite-node": "^0.34.1",
         "vitest": "^0.24.5"
     },
-    "devDependencies": {
-        "eslint": "^8.46.0"
-    },
     "peerDependencies": {
         "@typescript-eslint/eslint-plugin": "*",
         "@typescript-eslint/parser": "*",
-        "eslint": ">=8",
         "eslint-plugin-import": "*",
         "eslint-plugin-jsx-a11y": "*",
         "eslint-plugin-react": "*"
