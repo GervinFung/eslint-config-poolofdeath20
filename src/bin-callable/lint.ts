@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import fs from 'fs';
 import path from 'path';
 import { ESLint } from 'eslint';
@@ -13,7 +12,7 @@ const getAllFilesToLint = (
         const filePath = path.posix.join(directory.toRead, file);
         if (fs.statSync(filePath).isDirectory()) {
             return directory.toIgnore.find((extension) => {
-                return file.endsWith(extension);
+                return file.startsWith(extension);
             })
                 ? []
                 : getAllFilesToLint({
@@ -41,7 +40,8 @@ const lint = async () => {
                     .readFileSync('.gitignore', { encoding: 'utf-8' })
                     .replace('**', '')
                     .split('\n')
-                    .filter(Boolean),
+                    .filter(Boolean)
+                    .concat('bin'),
             })
         );
 
@@ -55,4 +55,4 @@ const lint = async () => {
     }
 };
 
-lint();
+export default lint;

@@ -20,7 +20,7 @@ const readCode = (file: string) => {
 };
 
 const main = () => {
-    const fileAndCode = getCjsFiles('build/cjs').map((file) => {
+    const fileAndCode = getCjsFiles('build').map((file) => {
         return {
             file,
             code: readCode(file),

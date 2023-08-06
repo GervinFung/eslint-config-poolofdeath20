@@ -1,8 +1,7 @@
-#!/usr/bin/env node
 import childProcess from 'child_process';
 import path from 'path';
 
-const main = (args: ReadonlyArray<string>) => {
+const format = (args: ReadonlyArray<string>) => {
     try {
         const command = `pnpm prettier --ignore-path .gitignore **${path.sep}*.{ts,json,md}`;
 
@@ -24,4 +23,4 @@ const main = (args: ReadonlyArray<string>) => {
     }
 };
 
-main(process.argv.slice(2));
+export default format;

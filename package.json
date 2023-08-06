@@ -1,33 +1,29 @@
 {
-    "name": "@poolofdeath20/linmat",
+    "name": "linmat",
     "description": "PoolOfDeath20 eslint and prettier util",
     "version": "0.2.0",
     "license": "MIT",
     "exports": {
         "./react": {
-            "require": "./build/cjs/react/index.js",
-            "import": "./build/mjs/react/index.js"
+            "require": "./build/cjs/react/index.js"
         },
         "./node": {
-            "require": "./build/cjs/node/index.js",
-            "import": "./build/mjs/node/index.js"
+            "require": "./build/cjs/node/index.js"
         }
+    },
+    "bin": {
+        "linmat-lint": "./bin/lint.js",
+        "linmat-format": "./bin/format.js"
     },
     "scripts": {
         "postinstall": "pnpm build",
-        "lint": "vite-node src/bin/lint.ts",
-        "format-write": "vite-node src/bin/format.ts -- --write",
-        "format-check": "vite-node src/bin/format.ts -- --check",
-        "build-mjs": "tsc -p tsconfig.mjs.json && ts-add-js-extension add --dir=build/mjs",
-        "build-cjs": "tsc -p tsconfig.cjs.json",
+        "lint": "node bin/lint.cjs",
+        "format-write": "node bin/format.cjs --write",
+        "format-check": "node bin/format.cjs --check",
         "postbuild-cjs": "vite-node script/cjs-module-exports.ts",
-        "build": "rm -rf build && pnpm build-cjs && pnpm build-mjs && node-package-helper && pnpm postbuild",
-        "postbuild": "shx chmod +x build/cjs/bin/lint.js && shx chmod +x build/cjs/bin/format.js",
+        "build": "rm -rf build && tsc -p tsconfig.cjs.json && pnpm postbuild-cjs && pnpm postbuild",
+        "postbuild": "shx chmod +x bin/lint.cjs && shx chmod +x bin/format.cjs",
         "test": "vitest"
-    },
-    "bin": {
-        "poolofdeath20-lint": "./build/cjs/bin/lint.js",
-        "poolofdeath20-format": "./build/cjs/bin/format.js"
     },
     "dependencies": {
         "@types/eslint": "^8.44.2",
@@ -38,7 +34,7 @@
         "prettier": "^3.0.1",
         "shx": "^0.3.4",
         "ts-add-js-extension": "^1.5.8",
-        "typescript": "^4.9.5",
+        "typescript": "^5.1.6",
         "vite-node": "^0.34.1",
         "vitest": "^0.24.5"
     },
