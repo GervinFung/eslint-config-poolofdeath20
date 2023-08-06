@@ -1,22 +1,17 @@
-# @poolofdeath20/eslint-config
-
-This is my eslint shareable config
-
-What's an eslint shareable config? See [this](https://eslint.org/docs/latest/developer-guide/shareable-configs.html)
+# @poolofdeath20/lint-format
 
 ### How to use
 
 Install via
 
 ```sh
-pnpm/npm/yarn add -D @poolofdeath20/eslint-config
+pnpm/npm/yarn add -D @poolofdeath20/lint-format
 ```
 
 Then install along its peer dependencies
 
 ```sh
 pnpm/npm/yarn add -D \
-  eslint-plugin-styled-components-a11y \
   eslint-plugin-react \
   eslint-plugin-jsx-a11y \
   eslint \
@@ -44,7 +39,7 @@ pnpm/npm/yarn add -D \
 
 ### Changes
 
-Kindly refer to [CHANGELOG](https://github.com/Packer-Man/eslint-config-poolofdeath20/blob/main/CHANGELOG.md)
+Kindly refer to [CHANGELOG](https://github.com/GervinFung/eslint-config-poolofdeath20/blob/main/CHANGELOG.md)
 
 ### Additional information
 

@@ -4,8 +4,8 @@ import * as Eslint from '@typescript-eslint/typescript-estree';
 
 type Files = ReadonlyArray<string>;
 
-const getCjsFiles = (dir: string): Files =>
-    fs.readdirSync(dir).flatMap((file) => {
+const getCjsFiles = (dir: string): Files => {
+    return fs.readdirSync(dir).flatMap((file) => {
         const filePath = `${dir}/${file}`;
         return fs.statSync(filePath).isDirectory()
             ? getCjsFiles(filePath)
@@ -13,17 +13,19 @@ const getCjsFiles = (dir: string): Files =>
             ? []
             : [filePath];
     });
+};
 
-const readCode = (file: string) => fs.readFileSync(file, { encoding: 'utf8' });
+const readCode = (file: string) => {
+    return fs.readFileSync(file, { encoding: 'utf8' });
+};
 
 const main = () => {
-    const fileAndCode = getCjsFiles('build/cjs').map(
-        (file) =>
-            ({
-                file,
-                code: readCode(file),
-            } as const)
-    );
+    const fileAndCode = getCjsFiles('build/cjs').map((file) => {
+        return {
+            file,
+            code: readCode(file),
+        } as const;
+    });
 
     const nodeType = Eslint.AST_NODE_TYPES;
 
@@ -84,9 +86,9 @@ const main = () => {
             .replace(/\r/gm, '')
             .split('\n')
             .map((code) => {
-                const found = exportStatement.find((statement) =>
-                    code.trim().startsWith(statement.old)
-                );
+                const found = exportStatement.find((statement) => {
+                    return code.trim().startsWith(statement.old);
+                });
                 return !found ? code : found.new;
             })
             .join('\n');
