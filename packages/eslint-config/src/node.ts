@@ -1,7 +1,7 @@
-import base from '../base';
+import base from './base';
 
 const node = {
-    ...base,
+	...base,
 } as const;
 
 export { node };

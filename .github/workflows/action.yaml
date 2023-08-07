@@ -1,4 +1,4 @@
-name: eslint-config-poolofdeath20-ci-cd
+name: npm-tool-config-ci-cd
 
 on: [push, pull_request]
 

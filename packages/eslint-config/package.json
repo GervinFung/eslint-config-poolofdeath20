@@ -1,0 +1,37 @@
+{
+	"name": "@poolofdeath20/eslint-config",
+	"description": "PoolOfDeath20 npm config",
+	"version": "0.0.0",
+	"license": "MIT",
+	"exports": {
+		"./react": {
+			"require": "./build/react.js"
+		},
+		"./node": {
+			"require": "./build/node.js"
+		}
+	},
+	"keywords": [
+		"prettier config"
+	],
+	"homepage": "https://github.com/GervinFung/npm-config",
+	"bugs": "https://github.com/GervinFung/npm-config/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/GervinFung/npm-config"
+	},
+	"scripts": {
+		"postbuild-cjs": "vite-node script/cjs-module-exports.ts",
+		"build": "shx rm -rf build && tsc -p tsconfig.cjs.json && pnpm postbuild-cjs"
+	},
+	"files": [
+		"build"
+	],
+	"peerDependencies": {
+		"@typescript-eslint/eslint-plugin": "*",
+		"@typescript-eslint/parser": "*",
+		"eslint-plugin-import": "*",
+		"eslint-plugin-jsx-a11y": "*",
+		"eslint-plugin-react": "*"
+	}
+}
