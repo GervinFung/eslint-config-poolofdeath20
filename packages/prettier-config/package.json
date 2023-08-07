@@ -1,0 +1,26 @@
+{
+	"name": "@poolofdeath20/prettier-config",
+	"description": "My Prettier shareable config",
+	"version": "0.0.0",
+	"license": "MIT",
+	"keywords": [
+		"prettier config"
+	],
+	"homepage": "https://github.com/GervinFung/npm-config",
+	"bugs": "https://github.com/GervinFung/npm-config/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/GervinFung/npm-config"
+	},
+	"scripts": {
+		"build-cjs": "tsc -p tsconfig.cjs.json",
+		"build-mjs": "tsc -p tsconfig.mjs.json",
+		"build": "shx rm -rf build && pnpm build-cjs && pnpm build-mjs"
+	},
+	"files": [
+		"build"
+	],
+	"peerDependencies": {
+		"prettier": "*"
+	}
+}

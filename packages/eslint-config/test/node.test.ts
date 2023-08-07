@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import base from '../../../src/config/lint/base';
-import { node } from '../../../src/config/lint/node';
+import base from '../src/base';
+import { node } from '../src/node';
 
 describe('node config', () => {
 	it('should assert that node config is correct', () => {

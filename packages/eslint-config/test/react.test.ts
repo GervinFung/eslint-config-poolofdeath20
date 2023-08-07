@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import base from '../../../src/config/lint/base';
-import { react } from '../../../src/config/lint/react';
+import { react } from '../src/react';
+import base from '../src/base';
 
 describe('react config', () => {
 	it('should assert that react config is correct', () => {
