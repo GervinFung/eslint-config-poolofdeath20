@@ -6,11 +6,11 @@
 	"keywords": [
 		"prettier config"
 	],
-	"homepage": "https://github.com/GervinFung/npm-config",
-	"bugs": "https://github.com/GervinFung/npm-config/issues",
+	"homepage": "https://github.com/GervinFung/npm-tool-config",
+	"bugs": "https://github.com/GervinFung/npm-tool-config/issues",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/GervinFung/npm-config"
+		"url": "https://github.com/GervinFung/npm-tool-config"
 	},
 	"scripts": {
 		"build-cjs": "tsc -p tsconfig.cjs.json",
