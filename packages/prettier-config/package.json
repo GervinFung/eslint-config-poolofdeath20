@@ -15,12 +15,15 @@
 	"scripts": {
 		"build-cjs": "tsc -p tsconfig.cjs.json",
 		"build-mjs": "tsc -p tsconfig.mjs.json",
-		"build": "shx rm -rf build && pnpm build-cjs && pnpm build-mjs"
+		"build": "shx rm -rf build && pnpm build-cjs && pnpm build-mjs && node-package-helper"
 	},
 	"files": [
 		"build"
 	],
 	"peerDependencies": {
 		"prettier": "*"
+	},
+	"devDependencies": {
+		"node-package-helper": "github:GervinFung/node-package-helper"
 	}
 }

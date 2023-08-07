@@ -38,6 +38,7 @@ const base = {
 		],
 		semi: ['error', 'always'],
 		'arrow-body-style': ['error', 'always'],
+		'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
 	},
 } as const;
 
