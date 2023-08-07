@@ -1,3 +1,7 @@
+## 0.2.1 (6 August 2023)
+
+-   (Fix) Added `no-mixed-spaces-and-tabs` and set to `smart-tabs` to avoid raising issue due to formatting
+
 ## 0.2.0 (6 August 2023)
 
 -   (Feat) Created an binary file to run linter through JavaScript API
