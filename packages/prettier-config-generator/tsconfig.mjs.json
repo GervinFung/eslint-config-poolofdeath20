@@ -2,9 +2,9 @@
 	"extends": "../../tsconfig.json",
 	"compilerOptions": {
 		"noEmit": false,
-		"declaration": true,
-		"declarationMap": false,
-		"sourceMap": true
+		"module": "esnext",
+		"outDir": "build",
+		"target": "esnext"
 	},
 	"include": ["src"]
 }

@@ -60,15 +60,15 @@ importers:
         specifier: '*'
         version: 7.33.1(eslint@8.46.0)
 
-  packages/prettier-config:
+  packages/prettier-config-generator:
     dependencies:
       prettier:
         specifier: '*'
         version: 3.0.1
     devDependencies:
-      node-package-helper:
-        specifier: github:GervinFung/node-package-helper
-        version: github.com/GervinFung/node-package-helper/7b039d571f2b94a75a91c521a6a2344138f12f01
+      ts-add-js-extension:
+        specifier: ^1.5.8
+        version: 1.5.8
 
 packages:
 
@@ -2526,15 +2526,3 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
-
-  github.com/GervinFung/node-package-helper/7b039d571f2b94a75a91c521a6a2344138f12f01:
-    resolution: {tarball: https://codeload.github.com/GervinFung/node-package-helper/tar.gz/7b039d571f2b94a75a91c521a6a2344138f12f01}
-    name: node-package-helper
-    version: 0.1.5
-    hasBin: true
-    requiresBuild: true
-    dependencies:
-      shx: 0.3.4
-      ts-add-js-extension: 1.5.8
-      typescript: 5.1.6
-    dev: true

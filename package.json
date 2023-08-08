@@ -1,13 +1,13 @@
 {
 	"name": "poolofdeath20",
-	"description": "My NPM config",
+	"description": "My NPM tools",
 	"license": "MIT",
 	"scripts": {
 		"lint": "eslint . --ignore-path .gitignore --ext .ts --color",
 		"format": "pnpm prettier --ignore-path .gitignore **/*.{js,cjs,ts,json,md}",
 		"format-write": "pnpm format --write",
 		"format-check": "pnpm format --check",
-		"build-prettier": "cd packages/prettier-config && pnpm build",
+		"build-prettier": "cd packages/prettier-config-generator && pnpm build",
 		"build-eslint": "cd packages/eslint-config && pnpm build",
 		"build": "pnpm build-eslint && pnpm build-prettier",
 		"test": "vitest"
