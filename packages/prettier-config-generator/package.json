@@ -1,7 +1,7 @@
 {
 	"name": "@poolofdeath20/prettier-config-generator",
 	"description": "My Prettier shareable config through generating config",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"type": "module",
 	"license": "MIT",
 	"bin": {
@@ -18,7 +18,6 @@
 		"url": "https://github.com/GervinFung/npm-tool-config"
 	},
 	"scripts": {
-		"postinstall": "pnpm copy-config",
 		"copy-config": "vite-node script/generate-prettier-config.ts",
 		"build": "pnpm copy-config && shx rm -rf build && tsc -p tsconfig.mjs.json && ts-add-js-extension --dir=build"
 	},
