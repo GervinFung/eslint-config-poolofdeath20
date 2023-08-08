@@ -1,4 +1,4 @@
 node_modules
 packages/**/node_modules
 packages/**/build
-packages/prettier-config/src/prettier-config.ts
+packages/prettier-config-generator/src/prettier-config.ts
