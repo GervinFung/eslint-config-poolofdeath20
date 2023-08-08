@@ -1,6 +1,6 @@
 {
 	"name": "poolofdeath20",
-	"description": "My NPM config",
+	"description": "My NPM tools",
 	"license": "MIT",
 	"scripts": {
 		"lint": "eslint . --ignore-path .gitignore --ext .ts --color",

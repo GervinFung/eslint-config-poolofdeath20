@@ -1,13 +1,12 @@
 {
 	"extends": "../../tsconfig.json",
 	"compilerOptions": {
+		"noEmit": false,
 		"module": "commonjs",
 		"verbatimModuleSyntax": false,
 		"moduleResolution": "node",
-		"esModuleInterop": true,
 		"outDir": "build",
 		"target": "es5",
-		"noEmit": false,
 		"declaration": true,
 		"declarationMap": false,
 		"sourceMap": true

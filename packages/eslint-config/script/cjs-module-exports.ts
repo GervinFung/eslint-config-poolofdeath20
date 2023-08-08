@@ -40,6 +40,7 @@ const main = () => {
 				return node.name;
 			}
 		}
+		return undefined;
 	};
 
 	fileAndCode.forEach(({ file, code }) => {
@@ -48,7 +49,6 @@ const main = () => {
 		}).body.flatMap((node) => {
 			switch (node.type) {
 				case nodeType.ExpressionStatement: {
-					node.expression;
 					switch (node.expression.type) {
 						case nodeType.AssignmentExpression: {
 							const { left } = node.expression;
@@ -71,15 +71,16 @@ const main = () => {
 											},
 										];
 									}
+									break;
 								}
 							}
+							break;
 						}
 					}
-				}
-				default: {
-					return [];
+					break;
 				}
 			}
+			return [];
 		});
 
 		const newCode = code
@@ -87,7 +88,7 @@ const main = () => {
 			.split('\n')
 			.map((code) => {
 				const found = exportStatement.find((statement) => {
-					return code.trim().startsWith(statement.old);
+					return code.trim().startsWith(statement?.old ?? '');
 				});
 				return !found ? code : found.new;
 			})
