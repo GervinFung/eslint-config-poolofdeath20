@@ -60,7 +60,7 @@ importers:
         specifier: '*'
         version: 7.33.1(eslint@8.46.0)
 
-  packages/prettier-config:
+  packages/prettier-config-generator:
     dependencies:
       prettier:
         specifier: '*'
