@@ -5,9 +5,7 @@ const main = () => {
 	const config = fs.readFileSync('../../.prettierrc', { encoding: 'utf-8' });
 
 	const code = [
-		'const config = ',
-		config,
-		'as const;\n',
+		`const config = (${config}) as const\n`,
 		'export default config',
 	];
 
