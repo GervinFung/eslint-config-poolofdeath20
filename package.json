@@ -23,6 +23,6 @@
 		"ts-add-js-extension": "^1.5.8",
 		"typescript": "^5.1.6",
 		"vite-node": "^0.34.1",
-		"vitest": "^0.24.5"
+		"vitest": "^0.34.3"
 	}
 }

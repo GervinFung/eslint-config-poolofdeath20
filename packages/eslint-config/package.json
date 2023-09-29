@@ -1,7 +1,7 @@
 {
 	"name": "@poolofdeath20/eslint-config",
 	"description": "My ESLint shareable config",
-	"version": "0.2.1",
+	"version": "0.3.0",
 	"license": "MIT",
 	"exports": {
 		"./react": {
@@ -32,6 +32,7 @@
 		"@typescript-eslint/parser": "*",
 		"eslint-plugin-import": "*",
 		"eslint-plugin-jsx-a11y": "*",
-		"eslint-plugin-react": "*"
+		"eslint-plugin-react": "*",
+		"eslint-config-next": "*"
 	}
 }
