@@ -7,6 +7,9 @@
 		"./react": {
 			"require": "./build/react.js"
 		},
+		"./next": {
+			"require": "./build/next.js"
+		},
 		"./node": {
 			"require": "./build/node.js"
 		}

@@ -1,3 +1,7 @@
+## 0.3.1 (30 Sept 2023)
+
+-   (Fix) Added `next` for exports
+
 ## 0.3.0 (29 Sept 2023)
 
 -   (Feat) Added config for `nextjs` and detect react version
