@@ -1,8 +1,16 @@
-## 0.2.1 (6 August 2023)
+## 0.3.1 (29 Sept 2023)
+
+-   (Fix) Added `next` for exports
+
+## 0.3.0 (29 Sept 2023)
+
+-   (Feat) Added config for `nextjs` and detect react version
+
+## 0.2.1 (6 Aug 2023)
 
 -   (Fix) Added `no-mixed-spaces-and-tabs` and set to `smart-tabs` to avoid raising issue due to formatting
 
-## 0.2.0 (6 August 2023)
+## 0.2.0 (6 Aug 2023)
 
 -   (Feat) Created an binary file to run linter through JavaScript API
 -   (Feat) Added `arrow-body-style` to enforce using `return` keyword when a value is returned

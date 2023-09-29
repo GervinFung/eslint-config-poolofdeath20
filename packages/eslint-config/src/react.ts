@@ -7,6 +7,11 @@ const react = {
 		...base.rules,
 		'react/prop-types': 0,
 	},
+	settings: {
+		react: {
+			version: 'detect',
+		},
+	},
 } as const;
 
 export { react };
