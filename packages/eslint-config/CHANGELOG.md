@@ -1,4 +1,4 @@
-## 0.3.1 (30 Sept 2023)
+## 0.3.1 (29 Sept 2023)
 
 -   (Fix) Added `next` for exports
 
