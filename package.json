@@ -9,8 +9,7 @@
 		"format-check": "pnpm format --check",
 		"build-prettier": "cd packages/prettier-config-generator && pnpm build",
 		"build-eslint": "cd packages/eslint-config && pnpm build",
-		"build": "pnpm build-eslint && pnpm build-prettier",
-		"test": "vitest"
+		"build": "pnpm build-eslint && pnpm build-prettier"
 	},
 	"devDependencies": {
 		"@types/eslint": "^8.44.2",
