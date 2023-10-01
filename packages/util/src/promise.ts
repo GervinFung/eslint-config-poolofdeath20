@@ -4,14 +4,14 @@ const sleepInMilliseconds = <T>(
 		callback?: () => Promise<T>;
 	}>
 ) => {
-	return new Promise<T>((resolve) =>
-		setTimeout(async () => {
+	return new Promise<T>((resolve) => {
+		return setTimeout(async () => {
 			const value = await props.callback?.();
 			if (value) {
 				resolve(value);
 			}
-		}, props.milliseconds)
-	);
+		}, props.milliseconds);
+	});
 };
 
 const sleepInSeconds = <T>(
@@ -20,14 +20,14 @@ const sleepInSeconds = <T>(
 		callback?: () => Promise<T>;
 	}>
 ) => {
-	return new Promise<T>((resolve) =>
-		setTimeout(async () => {
+	return new Promise<T>((resolve) => {
+		return setTimeout(async () => {
 			const value = await props.callback?.();
 			if (value) {
 				resolve(value);
 			}
-		}, props.seconds * 1000)
-	);
+		}, props.seconds * 1000);
+	});
 };
 
 export { sleepInMilliseconds, sleepInSeconds };

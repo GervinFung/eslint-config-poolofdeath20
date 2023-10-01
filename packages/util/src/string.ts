@@ -1,5 +1,7 @@
 const isBlank = (s: string) => {
-	return s.split('').every((char) => char === ' ');
+	return s.split('').every((char) => {
+		return char === ' ';
+	});
 };
 
 const isEmpty = (s: string) => {

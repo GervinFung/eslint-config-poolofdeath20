@@ -11,28 +11,34 @@ const equal = (x: unknown, y: unknown) => {
 		return false;
 	}
 
-	for (const p in x) {
-		// eslint-disable-next-line no-ts-ignore
-		// @ts-ignore
-		if (!x.hasOwnProperty(p) || Object.is(x[p], y[p])) {
+	for (const props in x) {
+		if (
+			!Object.prototype.hasOwnProperty.call(x, props) ||
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+			// @ts-ignore
+			Object.is(x[props], y[props])
+		) {
 			continue;
 		}
 
 		if (
-			!y.hasOwnProperty(p) ||
-			// eslint-disable-next-line no-ts-ignore
+			!Object.prototype.hasOwnProperty.call(y, props) ||
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
-			typeof x[p] !== 'object' ||
-			// eslint-disable-next-line no-ts-ignore
+			typeof x[props] !== 'object' ||
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
-			!equal(x[p], y[p])
+			!equal(x[props], y[props])
 		) {
 			return false;
 		}
 	}
 
-	for (const p in y) {
-		if (y.hasOwnProperty(p) && !x.hasOwnProperty(p)) {
+	for (const props in y) {
+		if (
+			Object.prototype.hasOwnProperty.call(y, props) &&
+			!Object.prototype.hasOwnProperty.call(x, props)
+		) {
 			return false;
 		}
 	}

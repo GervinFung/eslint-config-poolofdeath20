@@ -17,7 +17,9 @@ describe('Type guard should remove null, undefined value from a given value', ()
 			(value) => {
 				const error = new Error('value is not defined');
 
-				expect(() => guardAsDefined({ value, error })).toThrow(error);
+				expect(() => {
+					guardAsDefined({ value, error });
+				}).toThrow(error);
 			}
 		);
 
