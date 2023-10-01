@@ -19,5 +19,6 @@
 		"module": "esnext",
 		"moduleResolution": "bundler"
 	},
+	"include": ["**/.ts"],
 	"exclude": ["node_modules"]
 }

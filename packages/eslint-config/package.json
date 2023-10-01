@@ -17,11 +17,11 @@
 	"keywords": [
 		"eslint config"
 	],
-	"homepage": "https://github.com/GervinFung/npm-tool-config",
-	"bugs": "https://github.com/GervinFung/npm-tool-config/issues",
+	"homepage": "https://github.com/GervinFung/npm-tools",
+	"bugs": "https://github.com/GervinFung/npm-tools/issues",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/GervinFung/npm-tool-config"
+		"url": "https://github.com/GervinFung/npm-tools"
 	},
 	"scripts": {
 		"postbuild-cjs": "vite-node script/cjs-module-exports.ts",

@@ -11,11 +11,11 @@
 		"prettier config",
 		"prettier config generator"
 	],
-	"homepage": "https://github.com/GervinFung/npm-tool-config",
-	"bugs": "https://github.com/GervinFung/npm-tool-config/issues",
+	"homepage": "https://github.com/GervinFung/npm-tools",
+	"bugs": "https://github.com/GervinFung/npm-tools/issues",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/GervinFung/npm-tool-config"
+		"url": "https://github.com/GervinFung/npm-tools"
 	},
 	"scripts": {
 		"copy-config": "vite-node script/generate-prettier-config.ts",
