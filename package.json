@@ -9,12 +9,13 @@
 		"format-check": "pnpm format --check",
 		"build-prettier": "cd packages/prettier-config-generator && pnpm build",
 		"build-eslint": "cd packages/eslint-config && pnpm build",
-		"build": "pnpm build-eslint && pnpm build-prettier",
+		"build-util": "cd packages/util && pnpm build",
+		"build": "pnpm build-eslint && pnpm build-prettier && pnpm build-util",
 		"test": "vitest"
 	},
 	"devDependencies": {
 		"@types/eslint": "^8.44.3",
-		"@types/node": "^18.18.0",
+		"@types/node": "^20.8.0",
 		"@typescript-eslint/eslint-plugin": "^5.62.0",
 		"@typescript-eslint/parser": "^5.62.0",
 		"eslint": "^8.50.0",

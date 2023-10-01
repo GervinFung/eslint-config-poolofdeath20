@@ -14,22 +14,19 @@
 			"require": "./build/node.js"
 		}
 	},
-	"keywords": [
-		"eslint config"
+	"files": [
+		"build"
 	],
+	"scripts": {
+		"postbuild-cjs": "vite-node script/cjs-module-exports.ts",
+		"build": "shx rm -rf build && tsc -p tsconfig.cjs.json && pnpm postbuild-cjs"
+	},
 	"homepage": "https://github.com/GervinFung/npm-tools",
 	"bugs": "https://github.com/GervinFung/npm-tools/issues",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/GervinFung/npm-tools"
 	},
-	"scripts": {
-		"postbuild-cjs": "vite-node script/cjs-module-exports.ts",
-		"build": "shx rm -rf build && tsc -p tsconfig.cjs.json && pnpm postbuild-cjs"
-	},
-	"files": [
-		"build"
-	],
 	"peerDependencies": {
 		"@typescript-eslint/eslint-plugin": "*",
 		"@typescript-eslint/parser": "*",
@@ -37,5 +34,8 @@
 		"eslint-plugin-jsx-a11y": "*",
 		"eslint-plugin-react": "*",
 		"eslint-config-next": "*"
-	}
+	},
+	"keywords": [
+		"eslint config"
+	]
 }
