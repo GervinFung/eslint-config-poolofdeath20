@@ -1,25 +1,17 @@
-const isNotNull = <T>(t: T | null): t is Readonly<Exclude<T, null>> => {
-	return t !== null;
+const isNotNull = <T>(value: T | null): value is Readonly<Exclude<T, null>> => {
+	return value !== null;
 };
 
 const isNotUndefined = <T>(
-	t: T | undefined
-): t is Readonly<Exclude<T, undefined>> => {
-	return t !== undefined;
+	value: T | undefined
+): value is Readonly<Exclude<T, undefined>> => {
+	return value !== undefined;
 };
 
 const isNeitherNullNorUndefined = <T>(
-	t: T | null | undefined
-): t is NonNullable<T> => {
-	return t !== undefined && t !== null;
-};
-
-const isTruthy = <T>(t: T) => {
-	return Boolean(t);
-};
-
-const isFalsy = <T>(t: T) => {
-	return !t;
+	value: T | null | undefined
+): value is NonNullable<T> => {
+	return value !== undefined && value !== null;
 };
 
 const guardAsDefined = <T, Err extends Error>(
@@ -34,11 +26,4 @@ const guardAsDefined = <T, Err extends Error>(
 	throw props.error;
 };
 
-export {
-	isNotNull,
-	isNotUndefined,
-	isNeitherNullNorUndefined,
-	isTruthy,
-	isFalsy,
-	guardAsDefined,
-};
+export { isNotNull, isNotUndefined, isNeitherNullNorUndefined, guardAsDefined };

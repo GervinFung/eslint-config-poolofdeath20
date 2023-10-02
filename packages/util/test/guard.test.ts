@@ -4,8 +4,6 @@ import {
 	isNotNull,
 	isNotUndefined,
 	guardAsDefined,
-	isTruthy,
-	isFalsy,
 } from '../src/guard';
 
 describe('Type guard should remove null, undefined value from a given value', () => {
@@ -28,17 +26,6 @@ describe('Type guard should remove null, undefined value from a given value', ()
 
 			expect(guardAsDefined({ value: 1, error })).toBe(1);
 		});
-	});
-
-	it('should assert whether a value is falsy or truthy', () => {
-		const falsyValues = [0, '', false, null, undefined];
-		const truthyValues = [1, 'defined', true, { a: 1 }, []];
-
-		const values = [...falsyValues, ...truthyValues];
-
-		expect(values.filter(isTruthy)).toStrictEqual(truthyValues);
-
-		expect(values.filter(isFalsy)).toStrictEqual(falsyValues);
 	});
 
 	it('should return a value when a value is defined', () => {

@@ -1,8 +1,8 @@
 import { isNotNull } from './guard';
 
-const convertNullableToOptional = <T>(t: T | null) => {
-	if (isNotNull(t)) {
-		return t;
+const convertNullableToOptional = <T>(value: T | null) => {
+	if (isNotNull(value)) {
+		return value;
 	}
 	return undefined;
 };
