@@ -1,0 +1,10 @@
+{
+	"extends": "./tsconfig.js.json",
+	"compilerOptions": {
+		"module": "commonjs",
+		"verbatimModuleSyntax": false,
+		"moduleResolution": "node",
+		"outDir": "build/cjs",
+		"target": "es5"
+	}
+}

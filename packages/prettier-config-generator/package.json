@@ -2,32 +2,32 @@
 	"name": "@poolofdeath20/prettier-config-generator",
 	"description": "My Prettier shareable config through generating config",
 	"version": "0.0.1",
-	"type": "module",
 	"license": "MIT",
+	"type": "module",
 	"bin": {
 		"prettier-config-generate": "./build/bin.js"
 	},
-	"keywords": [
-		"prettier config",
-		"prettier config generator"
+	"files": [
+		"build"
 	],
+	"scripts": {
+		"copy-config": "vite-node script/generate-prettier-config.ts",
+		"build": "pnpm copy-config && shx rm -rf build && tsc -p tsconfig.mjs.json && ts-add-js-extension --dir=build"
+	},
 	"homepage": "https://github.com/GervinFung/npm-tools",
 	"bugs": "https://github.com/GervinFung/npm-tools/issues",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/GervinFung/npm-tools"
 	},
-	"scripts": {
-		"copy-config": "vite-node script/generate-prettier-config.ts",
-		"build": "pnpm copy-config && shx rm -rf build && tsc -p tsconfig.mjs.json && ts-add-js-extension --dir=build"
-	},
-	"files": [
-		"build"
-	],
 	"peerDependencies": {
 		"prettier": "*"
 	},
 	"devDependencies": {
 		"ts-add-js-extension": "^1.5.8"
-	}
+	},
+	"keywords": [
+		"prettier config",
+		"prettier config generator"
+	]
 }

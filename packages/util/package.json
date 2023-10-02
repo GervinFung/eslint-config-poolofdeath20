@@ -1,0 +1,40 @@
+{
+	"name": "@poolofdeath20/util",
+	"description": "My personal util",
+	"version": "0.0.0",
+	"license": "MIT",
+	"main": "./build/cjs/index.js",
+	"module": "./build/mjs/index.js",
+	"types": "./build/cjs/index.d.ts",
+	"react-native": "./build/mjs/index.js",
+	"exports": {
+		".": {
+			"require": "./build/cjs/index.js",
+			"import": "./build/mjs/index.js",
+			"default": "./build/mjs/index.js"
+		}
+	},
+	"files": [
+		"build"
+	],
+	"scripts": {
+		"build-cjs": "tsc -p tsconfig.cjs.json",
+		"build-mjs": "tsc -p tsconfig.mjs.json",
+		"build": "shx rm -rf build && pnpm build-cjs && pnpm build-mjs && pnpm postbuild",
+		"postbuild": "node-package-helper && ts-add-js-extension --dir=build/mjs",
+		"test": "vitest"
+	},
+	"homepage": "https://github.com/GervinFung/npm-tools",
+	"bugs": "https://github.com/GervinFung/npm-tools/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/GervinFung/npm-tools"
+	},
+	"devDependencies": {
+		"node-package-helper": "github:GervinFung/node-package-helper",
+		"ts-add-js-extension": "^1.5.8"
+	},
+	"keywords": [
+		"util"
+	]
+}
