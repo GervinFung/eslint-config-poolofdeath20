@@ -1,8 +1,13 @@
-const Bool = (boolean: boolean) => {
-	return {
-		isFalse: !boolean,
-		isTrue: boolean,
-	};
+const isFalse = (boolean: boolean) => {
+	return !boolean;
 };
 
-export { Bool };
+const isTruthy = <T>(value: T) => {
+	return Boolean(value);
+};
+
+const isFalsy = <T>(value: T) => {
+	return !value;
+};
+
+export { isFalse, isTruthy, isFalsy };
