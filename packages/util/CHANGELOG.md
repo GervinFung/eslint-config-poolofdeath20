@@ -1,3 +1,7 @@
+## 0.2.0 (3 Oct 2023)
+
+-   (Feat) Add query param parser from record to string and vice versa
+
 ## 0.1.1 (3 Oct 2023)
 
 -   (Fix) Add `web` to export from `index.ts`
