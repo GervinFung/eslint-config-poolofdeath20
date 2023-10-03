@@ -5,3 +5,4 @@ export * from './guard';
 export * from './promise';
 export * from './string';
 export * from './type';
+export * from './web';
