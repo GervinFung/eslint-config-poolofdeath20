@@ -1,3 +1,7 @@
+## 0.1.0 (3 Oct 2023)
+
+-   (Feat) Added util to chek for preferred mode and to see if environment is browser
+
 ## 0.0.1 (2 Oct 2023)
 
 -   (Fix) Use free function for `isFalse`, `isFalsy` and `isTruthy`
