@@ -3,7 +3,9 @@ import { isNeitherNullNorUndefined } from './guard';
 
 declare global {
 	interface ArrayConstructor {
-		isArray(arg: ReadonlyArray<any> | any): arg is ReadonlyArray<any>;
+		isArray(
+			arg: ReadonlyArray<unknown> | unknown
+		): arg is ReadonlyArray<unknown>;
 	}
 }
 
