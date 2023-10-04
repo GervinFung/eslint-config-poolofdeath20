@@ -52,6 +52,14 @@ const formQueryParamRecordFromString = (queryParam: string) => {
 		.map((queryParamUnit) => {
 			return queryParamUnit.split('=');
 		})
+		.flatMap(([key, value]) => {
+			return !(
+				isNeitherNullNorUndefined(key) &&
+				isNeitherNullNorUndefined(value)
+			)
+				? []
+				: [[key, value] as const];
+		})
 		.map(([key, value]) => {
 			const decodedValue = decodeURIComponent(value);
 
