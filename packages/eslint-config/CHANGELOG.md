@@ -1,3 +1,7 @@
+## 0.3.2 (29 Sept 2023)
+
+-   (Fix) Updated peer dependencies
+
 ## 0.3.1 (29 Sept 2023)
 
 -   (Fix) Added `next` for exports
