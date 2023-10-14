@@ -1,0 +1,35 @@
+{
+	"name": "@poolofdeath20/tsconfig",
+	"description": "My tsconfig",
+	"version": "0.0.0",
+	"license": "MIT",
+	"exports": {
+		"./react": {
+			"require": "./src/react.json"
+		},
+		"./next": {
+			"require": "./src/next.json"
+		},
+		"./base": {
+			"require": "./src/base.json"
+		},
+		"./api": {
+			"require": "./src/api.json"
+		},
+		"./node": {
+			"require": "./src/node.json"
+		}
+	},
+	"files": [
+		"src"
+	],
+	"homepage": "https://github.com/GervinFung/npm-tools",
+	"bugs": "https://github.com/GervinFung/npm-tools/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/GervinFung/npm-tools"
+	},
+	"keywords": [
+		"tsconfig"
+	]
+}

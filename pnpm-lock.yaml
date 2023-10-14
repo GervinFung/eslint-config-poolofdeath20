@@ -79,6 +79,8 @@ importers:
         specifier: ^1.5.8
         version: 1.5.8
 
+  packages/tsconfig: {}
+
   packages/util:
     devDependencies:
       esbuild:
