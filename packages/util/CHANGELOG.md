@@ -1,3 +1,7 @@
+## 0.2.1 (14 Oct 2023)
+
+-   (Fix) Filter away falsy values to convert record to query params
+
 ## 0.2.0 (3 Oct 2023)
 
 -   (Feat) Add query param parser from record to string and vice versa
