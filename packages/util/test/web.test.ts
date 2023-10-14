@@ -17,6 +17,7 @@ describe('Browser utils', () => {
 
 		const record = {
 			name: 'man',
+			woman: '',
 			age: 33,
 			isMale: true,
 			hasKid: undefined,

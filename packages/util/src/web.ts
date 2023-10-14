@@ -34,9 +34,7 @@ const formQueryParamStringFromRecord = (
 ) => {
 	return Object.entries(params)
 		.flatMap(([key, value]) => {
-			return !isNeitherNullNorUndefined(value)
-				? []
-				: [[key, value] as const];
+			return !value ? [] : [[key, value] as const];
 		})
 		.map(([key, value]) => {
 			return `${key}=${encodeURIComponent(
