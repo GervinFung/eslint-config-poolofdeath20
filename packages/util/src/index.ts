@@ -6,3 +6,4 @@ export * from './promise';
 export * from './string';
 export * from './type';
 export * from './web';
+export * from './optional';

@@ -1,3 +1,7 @@
+## 0.2.3 (18 Oct 2023)
+
+-   (Fix) Add `optiona` to export from `index.ts`
+
 ## 0.2.2 (18 Oct 2023)
 
 -   (Fix) Use `Optional` instead of `guardAsDefined`
