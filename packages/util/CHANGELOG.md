@@ -1,3 +1,7 @@
+## 0.2.2 (18 Oct 2023)
+
+-   (Fix) Use `Optional` instead of `guardAsDefined`
+
 ## 0.2.1 (14 Oct 2023)
 
 -   (Fix) Filter away falsy values to convert record to query params

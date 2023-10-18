@@ -9,6 +9,7 @@ import {
 	getPreferredMode,
 	isBrowser,
 } from '../src/web';
+import { Optional } from '../src/optional';
 
 describe('Browser utils', () => {
 	it('should form query params record to string', () => {
@@ -67,10 +68,9 @@ describe('Browser utils', () => {
 			});
 
 			const code = new TextDecoder().decode(
-				guardAsDefined({
-					value: outputResult.outputFiles.at(0)?.contents,
-					error: new Error('No output file'),
-				})
+				Optional.from(
+					outputResult.outputFiles.at(0)?.contents
+				).unwrapOrThrow(new Error('No output file'))
 			);
 
 			const result = await page.evaluate((code) => {
