@@ -14,16 +14,4 @@ const isNeitherNullNorUndefined = <T>(
 	return value !== undefined && value !== null;
 };
 
-const guardAsDefined = <T, Err extends Error>(
-	props: Readonly<{
-		value: T | null | undefined;
-		error: Err;
-	}>
-) => {
-	if (isNeitherNullNorUndefined(props.value)) {
-		return props.value;
-	}
-	throw props.error;
-};
-
-export { isNotNull, isNotUndefined, isNeitherNullNorUndefined, guardAsDefined };
+export { isNotNull, isNotUndefined, isNeitherNullNorUndefined };
