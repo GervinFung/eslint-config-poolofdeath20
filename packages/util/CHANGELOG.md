@@ -1,6 +1,10 @@
+## 0.2.4 (18 Oct 2023)
+
+-   (Fix) Published updated version
+
 ## 0.2.3 (18 Oct 2023)
 
--   (Fix) Add `optiona` to export from `index.ts`
+-   (Fix) Add `Optional` to export from `index.ts`
 
 ## 0.2.2 (18 Oct 2023)
 
