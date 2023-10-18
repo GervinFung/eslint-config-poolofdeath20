@@ -2,7 +2,6 @@ import esbuild from 'esbuild';
 import puppeteer from 'puppeteer';
 import { describe, expect, it } from 'vitest';
 
-import { guardAsDefined } from '../src/guard';
 import {
 	formQueryParamRecordFromString,
 	formQueryParamStringFromRecord,
