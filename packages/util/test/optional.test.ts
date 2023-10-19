@@ -3,6 +3,7 @@ import { Optional } from '../src/optional';
 describe('Optional structure', () => {
 	it('should handle empty value with an `else` path', () => {
 		expect(Optional.from(1).unwrapOrGet(2)).toBe(1);
+		expect(Optional.from(1).unwrap()).toBe(1);
 
 		expect(
 			Optional.from(undefined).unwrapOrElse(() => {
@@ -13,6 +14,10 @@ describe('Optional structure', () => {
 		expect(() => {
 			Optional.from(null).unwrapOrThrow(new Error('error'));
 		}).toThrowError('error');
+
+		expect(() => {
+			Optional.from(null).unwrap();
+		}).toThrowError('value is null or undefined');
 	});
 
 	it.each([

@@ -37,6 +37,10 @@ class Optional<T> {
 		return new Optional<R>(undefined);
 	};
 
+	readonly unwrap = () => {
+		return this.unwrapOrThrow(new Error('value is null or undefined'));
+	};
+
 	readonly unwrapOrGet = <T>(t: T) => {
 		return isNeitherNullNorUndefined(this.value) ? this.value : t;
 	};
