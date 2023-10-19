@@ -1,3 +1,7 @@
+## 0.3.0 (19 Oct 2023)
+
+-   (Feat) Add `unwrap` only option to `Optional`
+
 ## 0.2.4 (18 Oct 2023)
 
 -   (Fix) Published updated version
