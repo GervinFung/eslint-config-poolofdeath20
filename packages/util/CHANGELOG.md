@@ -1,3 +1,8 @@
+## 0.4.0 (19 Oct 2023)
+
+-   (Feat) Add `isSome` & `isNome` to `Optional`
+-   (Feat) Add `Operation` mainly for possible failure handling
+
 ## 0.3.0 (19 Oct 2023)
 
 -   (Feat) Add `unwrap` only option to `Optional`

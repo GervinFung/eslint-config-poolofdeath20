@@ -21,6 +21,14 @@ class Optional<T> {
 			: Optional.none<T>();
 	};
 
+	readonly isSome = () => {
+		return isNeitherNullNorUndefined(this.value);
+	};
+
+	readonly isNone = () => {
+		return !this.isSome();
+	};
+
 	readonly map = <R>(fn: (value: T) => R) => {
 		if (isNeitherNullNorUndefined(this.value)) {
 			return new Optional<R>(fn(this.value));
