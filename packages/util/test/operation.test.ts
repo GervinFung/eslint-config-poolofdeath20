@@ -8,9 +8,14 @@ describe('Operation structure', () => {
 		expect(succeed.hadSucceed).toBe(true);
 		expect(succeed.data).toBe(1);
 
-		const failed = Operation.failed('error');
+		const stringFailed = Operation.failed('error');
 
-		expect(failed.hadSucceed).toBe(false);
-		expect(failed.reason).toBe('error');
+		expect(stringFailed.hadSucceed).toBe(false);
+		expect(stringFailed.reason).toBe('error');
+
+		const errorFailed = Operation.failed(new Error('error'));
+
+		expect(errorFailed.hadSucceed).toBe(false);
+		expect(errorFailed.reason).toBeInstanceOf(Error);
 	});
 });

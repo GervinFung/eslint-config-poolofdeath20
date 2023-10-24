@@ -57,12 +57,12 @@ class Optional<T> {
 		return isNeitherNullNorUndefined(this.value) ? this.value : fn();
 	};
 
-	readonly unwrapOrThrow = <E extends Error>(error: E) => {
+	readonly unwrapOrThrow = <E extends Error>(error: E | string) => {
 		if (isNeitherNullNorUndefined(this.value)) {
 			return this.value;
 		}
 
-		throw error;
+		throw typeof error === 'string' ? new Error(error) : error;
 	};
 }
 
