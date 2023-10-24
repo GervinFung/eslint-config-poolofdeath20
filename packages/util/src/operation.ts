@@ -8,7 +8,7 @@ class Operation {
 
 	static readonly failed = (reason: string | Error) => {
 		return {
-			reason,
+			reason: typeof reason === 'string' ? new Error(reason) : reason,
 			hadSucceed: false,
 		} as const;
 	};

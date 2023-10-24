@@ -1,3 +1,7 @@
+## 0.4.2 (24 Oct 2023)
+
+-   (Fix) Return `Error` instance for failed operation
+
 ## 0.4.1 (24 Oct 2023)
 
 -   (Fix) Allow failed operation to pass error object
