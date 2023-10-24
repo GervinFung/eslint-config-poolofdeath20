@@ -6,7 +6,7 @@ class Operation {
 		} as const;
 	};
 
-	static readonly failed = (reason: string) => {
+	static readonly failed = (reason: string | Error) => {
 		return {
 			reason,
 			hadSucceed: false,

@@ -17,6 +17,10 @@ describe('Optional structure', () => {
 		}).toThrowError('error');
 
 		expect(() => {
+			Optional.from(null).unwrapOrThrow('hi');
+		}).toThrowError('hi');
+
+		expect(() => {
 			Optional.from(null).unwrap();
 		}).toThrowError('value is null or undefined');
 	});

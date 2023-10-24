@@ -1,3 +1,8 @@
+## 0.4.1 (24 Oct 2023)
+
+-   (Fix) Allow failed operation to pass error object
+-   (Fix) Allow optional to take in string for throwing error
+
 ## 0.4.0 (19 Oct 2023)
 
 -   (Feat) Add `isSome` & `isNome` to `Optional`
