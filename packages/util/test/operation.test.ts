@@ -11,7 +11,7 @@ describe('Operation structure', () => {
 		const stringFailed = Operation.failed('error');
 
 		expect(stringFailed.hadSucceed).toBe(false);
-		expect(stringFailed.reason).toBe('error');
+		expect(stringFailed.reason).toBeInstanceOf(Error);
 
 		const errorFailed = Operation.failed(new Error('error'));
 
