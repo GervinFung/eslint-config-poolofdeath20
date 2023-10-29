@@ -1,3 +1,7 @@
+## 0.5.0 (29 Oct 2023)
+
+-   (Feat) Add `Defined` to handle possibly null/optional value
+
 ## 0.4.2 (24 Oct 2023)
 
 -   (Fix) Return `Error` instance for failed operation

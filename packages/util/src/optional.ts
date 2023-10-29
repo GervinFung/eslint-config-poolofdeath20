@@ -1,3 +1,4 @@
+import { Defined } from './defined';
 import { isNeitherNullNorUndefined } from './guard';
 
 class Optional<T> {
@@ -45,24 +46,16 @@ class Optional<T> {
 		return new Optional<R>(undefined);
 	};
 
-	readonly unwrap = () => {
-		return this.unwrapOrThrow(new Error('value is null or undefined'));
-	};
-
 	readonly unwrapOrGet = <T>(t: T) => {
-		return isNeitherNullNorUndefined(this.value) ? this.value : t;
+		return Defined.parse(this.value).orGet(t);
 	};
 
 	readonly unwrapOrElse = <T>(fn: () => T) => {
-		return isNeitherNullNorUndefined(this.value) ? this.value : fn();
+		return Defined.parse(this.value).orElse(fn);
 	};
 
 	readonly unwrapOrThrow = <E extends Error>(error: E | string) => {
-		if (isNeitherNullNorUndefined(this.value)) {
-			return this.value;
-		}
-
-		throw typeof error === 'string' ? new Error(error) : error;
+		return Defined.parse(this.value).orThrow(error);
 	};
 }
 
