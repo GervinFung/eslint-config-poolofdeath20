@@ -8,3 +8,4 @@ export * from './type';
 export * from './web';
 export * from './optional';
 export * from './operation';
+export * from './defined';
