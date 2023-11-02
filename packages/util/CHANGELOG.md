@@ -1,3 +1,7 @@
+## 0.5.2 (2 Nov 2023)
+
+-   (Fix) Export `defined`
+
 ## 0.5.1 (2 Nov 2023)
 
 -   (Refactor) Change `convertNullableToOptional` to `nullToUndefined`
