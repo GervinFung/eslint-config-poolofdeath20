@@ -1,3 +1,7 @@
+## 0.5.1 (2 Nov 2023)
+
+-   (Refactor) Change `convertNullableToOptional` to `nullToUndefined`
+
 ## 0.5.0 (29 Oct 2023)
 
 -   (Feat) Add `Defined` to handle possibly null/optional value
