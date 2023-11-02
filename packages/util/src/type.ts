@@ -1,10 +1,5 @@
-import { isNotNull } from './guard';
-
-const convertNullableToOptional = <T>(value: NonNullable<T> | null) => {
-	if (isNotNull(value)) {
-		return value;
-	}
-	return undefined;
+const nullToUndefined = <T>(value: NonNullable<T> | null) => {
+	return value ?? undefined;
 };
 
 type DeepReadonly<T> = T extends (infer R)[]
@@ -23,4 +18,4 @@ type DeepReadonlyObject<T> = {
 
 export type { DeepReadonly, DeepReadonlyObject };
 
-export { convertNullableToOptional };
+export { nullToUndefined };
