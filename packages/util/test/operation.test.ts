@@ -19,7 +19,7 @@ describe('Operation structure', () => {
 		expect(errorFailed.reason()).toBeInstanceOf(Error);
 	});
 
-	it.only.each([
+	it.each([
 		{
 			input: true,
 			output: {
@@ -41,8 +41,38 @@ describe('Operation structure', () => {
 				return Operation.succeed(2);
 			});
 
-			expect(result.hadFailed()).toBe(output.isError);
-			expect(result.hadSucceed()).toBe(!output.isError);
+			expect(
+				result.hadFailed() ? result.reason().message : undefined
+			).toBe(output.isError ? 'error' : undefined);
+
+			expect(result.hadSucceed() ? result.data().data() : undefined).toBe(
+				output.isError ? undefined : 2
+			);
+		}
+	);
+
+	it.each([
+		{
+			input: Operation.succeed('hi'),
+			output: {
+				hasFailed: false,
+			},
+		},
+		{
+			input: Operation.failed('error'),
+			output: {
+				hasFailed: true,
+			},
+		},
+	])(
+		'should conditionally invoke different path depending on result status',
+		({ input, output }) => {
+			const result = Operation.succeed(1).whenSucceed(() => {
+				return input;
+			});
+
+			expect(result.hadFailed()).toBe(output.hasFailed);
+			expect(result.hadSucceed()).toBe(!output.hasFailed);
 		}
 	);
 });

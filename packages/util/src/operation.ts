@@ -33,12 +33,10 @@ abstract class Result<T> {
 	};
 
 	readonly hadSucceed = (): this is Succeed<T> => {
-		console.log(this);
 		return this instanceof Succeed;
 	};
 
 	readonly hadFailed = (): this is Failed => {
-		console.log(this);
 		return this instanceof Failed;
 	};
 }
