@@ -1,3 +1,7 @@
+## 0.6.2 (13 Nov 2023)
+
+-   (Feat) Enhance `Defined` and `Operation`
+
 ## 0.5.2 (2 Nov 2023)
 
 -   (Fix) Export `defined`
