@@ -2,7 +2,7 @@ import { Defined } from './defined';
 import { isNeitherNullNorUndefined } from './guard';
 
 class Optional<T> {
-	constructor(private readonly value: T | null | undefined) {}
+	constructor(private readonly value: NonNullable<T> | null | undefined) {}
 
 	static readonly some = <T>(value: T) => {
 		if (isNeitherNullNorUndefined(value)) {
@@ -30,12 +30,12 @@ class Optional<T> {
 		return !this.isSome();
 	};
 
-	readonly map = <R>(fn: (value: T) => R) => {
+	readonly map = <R>(fn: (value: T) => NonNullable<R>) => {
 		if (isNeitherNullNorUndefined(this.value)) {
-			return new Optional<R>(fn(this.value));
+			return new Optional(fn(this.value));
 		}
 
-		return new Optional<R>(undefined);
+		return new Optional(undefined);
 	};
 
 	readonly flatMap = <R>(fn: (value: T) => Optional<R>) => {
@@ -43,7 +43,7 @@ class Optional<T> {
 			return fn(this.value);
 		}
 
-		return new Optional<R>(undefined);
+		return new Optional(undefined);
 	};
 
 	readonly unwrapOrGet = <T>(t: T) => {
