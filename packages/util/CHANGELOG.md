@@ -1,3 +1,8 @@
+## 0.6.6 (14 Nov 2023)
+
+-   (Fix) The `data` of `AsyncOperation` to be non-promise
+-   (Feat) Add `sequentialPromise` to execute promises in sequential order
+
 ## 0.6.5 (13 Nov 2023)
 
 -   (Fix) Export `AsyncOperation`

@@ -2,10 +2,10 @@ import { Defined } from '../defined';
 
 type Promisified<T> = Promise<NonNullable<T>>;
 
-abstract class Result<T> {
+abstract class AsyncResult<T> {
 	constructor(
 		private readonly _props: Readonly<{
-			data: Promisified<T> | undefined;
+			data: NonNullable<T> | undefined;
 			reason: Error | undefined;
 		}>
 	) {}
@@ -14,9 +14,38 @@ abstract class Result<T> {
 		return this._props;
 	};
 
+	readonly toJson = async (): Promise<
+		Readonly<
+			| {
+					hadSucceed: true;
+					data: T;
+			  }
+			| {
+					hadSucceed: false;
+					reason: Error;
+			  }
+		>
+	> => {
+		if (this.hadFailed()) {
+			return {
+				hadSucceed: false,
+				reason: this.reason(),
+			};
+		}
+
+		if (this.hadSucceed()) {
+			return {
+				hadSucceed: true,
+				data: await this.data(),
+			};
+		}
+
+		throw new Error('instance can only be either succeed or failed');
+	};
+
 	readonly map = async <R>(
-		fn: (data: Promisified<T>) => Promisified<R>
-	): Promise<Result<R>> => {
+		fn: (data: T) => Promisified<R>
+	): Promise<AsyncResult<R>> => {
 		if (this.hadSucceed()) {
 			const data = await fn(this.data());
 
@@ -34,9 +63,9 @@ abstract class Result<T> {
 		throw new Error('instance can only be either succeed or failed');
 	};
 
-	readonly flatMap = <R>(
-		fn: (data: Promisified<T> | NonNullable<T>) => Result<R>
-	): Result<R> => {
+	readonly flatMap = async <R>(
+		fn: (data: T) => Promisified<AsyncResult<R>>
+	): Promise<AsyncResult<R>> => {
 		if (this.hadSucceed()) {
 			return fn(this.data());
 		}
@@ -57,8 +86,8 @@ abstract class Result<T> {
 	};
 }
 
-class Succeed<T> extends Result<T> {
-	private constructor(data: Promisified<T>) {
+class Succeed<T> extends AsyncResult<T> {
+	private constructor(data: NonNullable<T>) {
 		super({
 			data,
 			reason: undefined,
@@ -69,14 +98,12 @@ class Succeed<T> extends Result<T> {
 		return Defined.parse(this.props().data).orThrow('data is undefined');
 	};
 
-	static readonly create = <T>(
-		data: Promisified<T> | NonNullable<T>
-	): Succeed<T> => {
-		return new this(Promise.resolve(data));
+	static readonly create = <T>(data: NonNullable<T>): Succeed<T> => {
+		return new this(data);
 	};
 }
 
-class Failed extends Result<never> {
+class Failed extends AsyncResult<never> {
 	private constructor(reason: Error) {
 		super({
 			reason,
@@ -98,8 +125,8 @@ class Failed extends Result<never> {
 }
 
 class AsyncOperation {
-	static readonly succeed = <T>(data: Promisified<T> | NonNullable<T>) => {
-		return Succeed.create(Promise.resolve(data));
+	static readonly succeed = <T>(data: NonNullable<T>) => {
+		return Succeed.create(data);
 	};
 
 	static readonly failed = (reason: string | Error) => {
@@ -107,4 +134,4 @@ class AsyncOperation {
 	};
 }
 
-export { AsyncOperation };
+export { AsyncOperation, AsyncResult };

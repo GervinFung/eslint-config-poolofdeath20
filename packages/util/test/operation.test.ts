@@ -115,23 +115,24 @@ describe('Promisified Operation structure', () => {
 	])(
 		'should conditionally invoke different path depending on result status',
 		async ({ input, output }) => {
-			const result = (
-				input
-					? AsyncOperation.succeed(1)
-					: AsyncOperation.failed('error')
+			const result = await (input
+				? AsyncOperation.succeed(1)
+				: AsyncOperation.failed('error')
 			)
-				.flatMap(() => {
+				.flatMap(async () => {
 					return AsyncOperation.succeed(2);
 				})
-				.flatMap(() => {
-					return AsyncOperation.succeed(2);
+				.then((value) => {
+					return value.flatMap(async () => {
+						return AsyncOperation.succeed(2);
+					});
 				});
 
 			expect(
 				result.hadFailed() ? result.reason().message : undefined
 			).toBe(output.isError ? 'error' : undefined);
 
-			expect(result.hadSucceed() ? await result.data() : undefined).toBe(
+			expect(result.hadSucceed() ? result.data() : undefined).toBe(
 				output.isError ? undefined : 2
 			);
 		}
