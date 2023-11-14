@@ -30,4 +30,15 @@ const sleepInSeconds = <T>(
 	});
 };
 
-export { sleepInMilliseconds, sleepInSeconds };
+const sequentialPromise = <T>(promises: ReadonlyArray<() => Promise<T>>) => {
+	return promises.reduce(
+		async (previousPromise, currentPromise) => {
+			return previousPromise.then(async (previousResult) => {
+				return previousResult.concat(await currentPromise());
+			});
+		},
+		Promise.resolve([] as ReadonlyArray<T>)
+	);
+};
+
+export { sleepInMilliseconds, sleepInSeconds, sequentialPromise };

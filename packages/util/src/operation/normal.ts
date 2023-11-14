@@ -103,4 +103,4 @@ class Operation {
 	};
 }
 
-export { Operation };
+export { Operation, Result };
