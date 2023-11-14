@@ -4,6 +4,7 @@
 	"license": "MIT",
 	"scripts": {
 		"lint": "eslint . --ignore-path .gitignore --ext .ts --color",
+		"typecheck": "tsc --noEmit",
 		"format": "prettier .",
 		"format-write": "pnpm format --write",
 		"format-check": "pnpm format --check",

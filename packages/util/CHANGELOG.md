@@ -1,3 +1,7 @@
+## 0.6.4 (13 Nov 2023)
+
+-   (Fix) `Operation` to have alternative async version `AsyncOperation`
+
 ## 0.6.3 (13 Nov 2023)
 
 -   (Fix) `Operation` to have `map` and `flatMap`
