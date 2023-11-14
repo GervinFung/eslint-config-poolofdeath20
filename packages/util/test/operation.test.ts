@@ -37,15 +37,19 @@ describe('Operation structure', () => {
 		({ input, output }) => {
 			const result = (
 				input ? Operation.succeed(1) : Operation.failed('error')
-			).whenSucceed(() => {
-				return Operation.succeed(2);
-			});
+			)
+				.flatMap(() => {
+					return Operation.succeed(2);
+				})
+				.flatMap(() => {
+					return Operation.succeed(2);
+				});
 
 			expect(
 				result.hadFailed() ? result.reason().message : undefined
 			).toBe(output.isError ? 'error' : undefined);
 
-			expect(result.hadSucceed() ? result.data().data() : undefined).toBe(
+			expect(result.hadSucceed() ? result.data() : undefined).toBe(
 				output.isError ? undefined : 2
 			);
 		}
@@ -67,7 +71,7 @@ describe('Operation structure', () => {
 	])(
 		'should conditionally invoke different path depending on result status',
 		({ input, output }) => {
-			const result = Operation.succeed(1).whenSucceed(() => {
+			const result = Operation.succeed(1).map(() => {
 				return input;
 			});
 
