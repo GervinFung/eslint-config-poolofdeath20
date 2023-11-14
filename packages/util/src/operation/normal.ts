@@ -1,4 +1,4 @@
-import { Defined } from './defined';
+import { Defined } from '../defined';
 
 abstract class Result<T> {
 	constructor(

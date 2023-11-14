@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { Operation } from '../src/operation';
-import { AsyncOperation } from '../src/operation/promise';
+import { Operation, AsyncOperation } from '../src/operation';
 
 describe('Operation structure', () => {
 	it('should wrap result in operation', () => {
