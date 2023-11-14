@@ -1,3 +1,7 @@
+## 0.6.5 (13 Nov 2023)
+
+-   (Fix) Export `AsyncOperation`
+
 ## 0.6.4 (13 Nov 2023)
 
 -   (Fix) `Operation` to have alternative async version `AsyncOperation`
