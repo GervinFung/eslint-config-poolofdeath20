@@ -12,7 +12,7 @@ abstract class Result<T> {
 		return this._props;
 	};
 
-	readonly whenSucceed = <R>(
+	readonly map = <R>(
 		fn: (data: NonNullable<T>) => NonNullable<R>
 	): Result<R> => {
 		if (this.hadSucceed()) {
@@ -23,6 +23,20 @@ abstract class Result<T> {
 			}
 
 			return Succeed.create(data);
+		}
+
+		if (this.hadFailed()) {
+			return Failed.create(this.reason());
+		}
+
+		throw new Error('instance can only be either succeed or failed');
+	};
+
+	readonly flatMap = <R>(
+		fn: (data: NonNullable<T>) => Result<NonNullable<R>>
+	): Result<R> => {
+		if (this.hadSucceed()) {
+			return fn(this.data());
 		}
 
 		if (this.hadFailed()) {

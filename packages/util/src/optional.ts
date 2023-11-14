@@ -38,7 +38,7 @@ class Optional<T> {
 		return new Optional(undefined);
 	};
 
-	readonly flatMap = <R>(fn: (value: T) => Optional<R>) => {
+	readonly flatMap = <R>(fn: (value: T) => Optional<NonNullable<R>>) => {
 		if (isNeitherNullNorUndefined(this.value)) {
 			return fn(this.value);
 		}
