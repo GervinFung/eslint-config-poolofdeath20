@@ -10,8 +10,8 @@ const getCjsFiles = (dir: string): Files => {
 		return fs.statSync(filePath).isDirectory()
 			? getCjsFiles(filePath)
 			: path.extname(filePath) !== '.js'
-			? []
-			: [filePath];
+			  ? []
+			  : [filePath];
 	});
 };
 
