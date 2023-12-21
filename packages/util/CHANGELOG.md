@@ -1,3 +1,7 @@
+## 0.6.7 (21 Dec 2023)
+
+-   (Feat) Add new type `Argument` that take only the type of first parameter of a function
+
 ## 0.6.6 (14 Nov 2023)
 
 -   (Fix) The `data` of `AsyncOperation` to be non-promise

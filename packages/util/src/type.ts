@@ -16,6 +16,10 @@ type DeepReadonlyObject<T> = {
 	readonly [P in keyof T]: DeepReadonly<T[P]>;
 };
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+type Argument<T extends (...parameters: any) => unknown> = Parameters<T>[0];
+
+export type { Argument };
 export type { DeepReadonly, DeepReadonlyObject };
 
 export { nullToUndefined };
