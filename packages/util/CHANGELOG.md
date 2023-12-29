@@ -1,3 +1,7 @@
+## 0.6.9 (29 Dec 2023)
+
+-   (Fix) Add `match` method for `Optional` class to mimic pattern mathcing
+
 ## 0.6.8 (29 Dec 2023)
 
 -   (Feat) Add `match` method for `Result` class to mimic pattern mathcing

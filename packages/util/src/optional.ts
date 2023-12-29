@@ -30,6 +30,17 @@ class Optional<T> {
 		return !this.isSome();
 	};
 
+	readonly match = <R, F>(
+		props: Readonly<{
+			some: (value: NonNullable<T>) => R;
+			none: () => F;
+		}>
+	) => {
+		return this.isSome()
+			? props.some(this.unwrapOrThrow('value is null or undefined'))
+			: props.none();
+	};
+
 	readonly map = <R>(fn: (value: T) => NonNullable<R>) => {
 		if (isNeitherNullNorUndefined(this.value)) {
 			return new Optional(fn(this.value));
