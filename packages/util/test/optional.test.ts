@@ -53,4 +53,28 @@ describe('Optional structure', () => {
 
 		expect(result.isNone()).toBe(output === undefined);
 	});
+
+	it('should run return appropriate result based on value', () => {
+		const some = Optional.some([1, 2, 3]).match({
+			some: (value) => {
+				return value.at(-1);
+			},
+			none: () => {
+				return new Error('error');
+			},
+		});
+
+		expect(some).toStrictEqual(3);
+
+		const none = Optional.none<Date>().match({
+			some: (value) => {
+				return value.getTime();
+			},
+			none: () => {
+				return 3;
+			},
+		});
+
+		expect(none).toBe(3);
+	});
 });
