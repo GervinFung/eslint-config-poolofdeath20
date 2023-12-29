@@ -1,7 +1,7 @@
 {
 	"name": "@poolofdeath20/util",
 	"description": "My personal util",
-	"version": "0.687",
+	"version": "0.6.8",
 	"license": "MIT",
 	"main": "./build/cjs/index.js",
 	"module": "./build/mjs/index.js",
