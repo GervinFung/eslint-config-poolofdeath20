@@ -75,6 +75,19 @@ describe('Operation structure', () => {
 				return input;
 			});
 
+			expect(
+				Operation.succeed(1).match({
+					onSucceed: (number) => {
+						return number + 2;
+					},
+					onFailed: (reason) => {
+						return {
+							reason,
+						};
+					},
+				})
+			).toBe(3);
+
 			expect(result.hadFailed()).toBe(output.hasFailed);
 			expect(result.hadSucceed()).toBe(!output.hasFailed);
 		}
@@ -95,6 +108,16 @@ describe('Promisified Operation structure', () => {
 
 		const errorFailed = AsyncOperation.failed(new Error('error'));
 
+		expect(
+			errorFailed.match({
+				onSucceed: () => {
+					return false;
+				},
+				onFailed: () => {
+					return true;
+				},
+			})
+		).toBe(true);
 		expect(errorFailed.hadSucceed()).toBe(false);
 		expect(errorFailed.reason()).toBeInstanceOf(Error);
 	});

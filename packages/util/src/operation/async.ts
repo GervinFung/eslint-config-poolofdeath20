@@ -43,6 +43,21 @@ abstract class AsyncResult<T> {
 		throw new Error('instance can only be either succeed or failed');
 	};
 
+	readonly match = <S, F>(
+		props: Readonly<{
+			onSucceed: (data: NonNullable<T>) => S;
+			onFailed: (reason: Error) => F;
+		}>
+	) => {
+		if (this.hadSucceed()) {
+			return props.onSucceed(this.data());
+		} else if (this.hadFailed()) {
+			return props.onFailed(this.reason());
+		}
+
+		throw new Error('instance can only be either succeed or failed');
+	};
+
 	readonly map = async <R>(
 		fn: (data: T) => Promisified<R>
 	): Promise<AsyncResult<R>> => {

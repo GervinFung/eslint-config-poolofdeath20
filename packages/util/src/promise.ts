@@ -7,6 +7,7 @@ const sleepInMilliseconds = <T>(
 	return new Promise<T>((resolve) => {
 		return setTimeout(async () => {
 			const value = await props.callback?.();
+
 			if (value) {
 				resolve(value);
 			}
@@ -23,6 +24,7 @@ const sleepInSeconds = <T>(
 	return new Promise<T>((resolve) => {
 		return setTimeout(async () => {
 			const value = await props.callback?.();
+
 			if (value) {
 				resolve(value);
 			}

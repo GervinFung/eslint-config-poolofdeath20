@@ -12,6 +12,21 @@ abstract class Result<T> {
 		return this._props;
 	};
 
+	readonly match = <S, F>(
+		props: Readonly<{
+			onSucceed: (data: NonNullable<T>) => S;
+			onFailed: (reason: Error) => F;
+		}>
+	): S | F => {
+		if (this.hadSucceed()) {
+			return props.onSucceed(this.data());
+		} else if (this.hadFailed()) {
+			return props.onFailed(this.reason());
+		}
+
+		throw new Error('instance can only be either succeed or failed');
+	};
+
 	readonly map = <R>(
 		fn: (data: NonNullable<T>) => NonNullable<R>
 	): Result<R> => {
@@ -86,7 +101,7 @@ class Failed extends Result<never> {
 		);
 	};
 
-	static create = (reason: string | Error) => {
+	static readonly create = (reason: string | Error) => {
 		return new this(
 			typeof reason === 'string' ? new Error(reason) : reason
 		);

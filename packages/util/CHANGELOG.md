@@ -1,3 +1,7 @@
+## 0.6.8 (29 Dec 2023)
+
+-   (Feat) Add `match` method for `Result` class to mimic pattern mathcing
+
 ## 0.6.7 (21 Dec 2023)
 
 -   (Feat) Add new type `Argument` that take only the type of first parameter of a function
