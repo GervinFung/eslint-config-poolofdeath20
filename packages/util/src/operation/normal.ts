@@ -12,6 +12,33 @@ abstract class Result<T> {
 		return this._props;
 	};
 
+	readonly toJson = (): Readonly<
+		| {
+				hadSucceed: true;
+				data: T;
+		  }
+		| {
+				hadSucceed: false;
+				reason: Error;
+		  }
+	> => {
+		if (this.hadFailed()) {
+			return {
+				hadSucceed: false,
+				reason: this.reason(),
+			};
+		}
+
+		if (this.hadSucceed()) {
+			return {
+				hadSucceed: true,
+				data: this.data(),
+			};
+		}
+
+		throw new Error('instance can only be either succeed or failed');
+	};
+
 	readonly match = <S, F>(
 		props: Readonly<{
 			onSucceed: (data: NonNullable<T>) => S;

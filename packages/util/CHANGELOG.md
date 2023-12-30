@@ -1,3 +1,8 @@
+## 0.6.10 (30 Dec 2023)
+
+-   (Fix) Add `toJson` method for `Operation` class
+
+
 ## 0.6.9 (29 Dec 2023)
 
 -   (Fix) Add `match` method for `Optional` class to mimic pattern mathcing
