@@ -132,7 +132,7 @@ class Failed extends AsyncResult<never> {
 		);
 	};
 
-	static create = (reason: string | Error) => {
+	static readonly create = (reason: string | Error) => {
 		return new this(
 			typeof reason === 'string' ? new Error(reason) : reason
 		);
