@@ -1,16 +1,15 @@
+import { Optional } from '.';
+
 const sleepInMilliseconds = <T>(
 	props: Readonly<{
 		milliseconds: number;
 		callback?: () => Promise<T>;
 	}>
 ) => {
-	return new Promise<T>((resolve) => {
+	return new Promise<Optional<T>>((resolve) => {
 		return setTimeout(async () => {
-			const value = await props.callback?.();
-
-			if (value) {
-				resolve(value);
-			}
+			const value = Optional.from(await props.callback?.());
+			resolve(value);
 		}, props.milliseconds);
 	});
 };
@@ -21,14 +20,9 @@ const sleepInSeconds = <T>(
 		callback?: () => Promise<T>;
 	}>
 ) => {
-	return new Promise<T>((resolve) => {
-		return setTimeout(async () => {
-			const value = await props.callback?.();
-
-			if (value) {
-				resolve(value);
-			}
-		}, props.seconds * 1000);
+	return sleepInMilliseconds({
+		milliseconds: props.seconds * 1000,
+		callback: props.callback,
 	});
 };
 

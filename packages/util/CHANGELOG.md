@@ -1,3 +1,7 @@
+## 0.6.11 (30 Dec 2023)
+
+-   (Fix) sleep promise can resolve even without providing callback function
+
 ## 0.6.10 (30 Dec 2023)
 
 -   (Fix) Add `toJson` method for `Operation` class
