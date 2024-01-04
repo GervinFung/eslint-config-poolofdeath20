@@ -6,25 +6,65 @@ import {
 } from '../src/promise';
 
 describe('A promise helper', () => {
-	it('should sleep for a given second/millisecond', async () => {
-		const value = await sleepInSeconds({
-			seconds: 3,
-			callback: async () => {
-				return true;
+	it.each([
+		{
+			seconds: {
+				callback: async () => {
+					return true;
+				},
+				expected: true,
 			},
-		});
-
-		expect(value).toBe(true);
-
-		const anotherValue = await sleepInMilliseconds({
-			milliseconds: 3 * 1000,
-			callback: async () => {
-				return 'hi';
+			milliseconds: {
+				callback: async () => {
+					return 'hi';
+				},
+				expected: 'hi',
 			},
-		});
+		},
+		{
+			seconds: {
+				expected: false,
+			},
+			milliseconds: {
+				expected: 'hello',
+			},
+		},
+	])(
+		'should sleep for a given second/millisecond with or without a callback',
+		async ({ seconds, milliseconds }) => {
+			const secondsResolved = await sleepInSeconds({
+				seconds: 1,
+				callback: seconds.callback,
+			});
 
-		expect(anotherValue).toBe('hi');
-	});
+			expect(
+				secondsResolved.match({
+					some: (value) => {
+						return value;
+					},
+					none: () => {
+						return false;
+					},
+				})
+			).toBe(seconds.expected);
+
+			const millisecondsResolved = await sleepInMilliseconds({
+				milliseconds: 1 * 1000,
+				callback: milliseconds.callback,
+			});
+
+			expect(
+				millisecondsResolved.match({
+					some: (value) => {
+						return value;
+					},
+					none: () => {
+						return 'hello';
+					},
+				})
+			).toBe(milliseconds.expected);
+		}
+	);
 
 	it('should execute an array of asynchronous functions in sequential order', async () => {
 		const indexes = Array.from({ length: 5 }, (_, index) => {
