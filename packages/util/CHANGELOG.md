@@ -1,3 +1,7 @@
+## 0.6.12 (12 Jan 2024)
+
+-   (Feat) Add a `Return` type to handle both return type of both non-async and async function
+
 ## 0.6.11 (30 Dec 2023)
 
 -   (Fix) sleep promise can resolve even without providing callback function

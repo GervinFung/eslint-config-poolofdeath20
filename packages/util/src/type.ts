@@ -19,7 +19,14 @@ type DeepReadonlyObject<T> = {
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 type Argument<T extends (...parameters: any) => unknown> = Parameters<T>[0];
 
-export type { Argument };
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+type Return<T extends (...args: any) => any> = T extends (
+	...args: any
+) => infer R
+	? Awaited<R>
+	: never;
+
+export type { Argument, Return };
 export type { DeepReadonly, DeepReadonlyObject };
 
 export { nullToUndefined };
