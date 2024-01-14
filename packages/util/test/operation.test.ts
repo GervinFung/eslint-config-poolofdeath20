@@ -138,9 +138,10 @@ describe('Promisified Operation structure', () => {
 	])(
 		'should conditionally invoke different path depending on result status',
 		async ({ input, output }) => {
-			const result = await (input
-				? AsyncOperation.succeed(1)
-				: AsyncOperation.failed('error')
+			const result = await (
+				input
+					? AsyncOperation.succeed(1)
+					: AsyncOperation.failed('error')
 			)
 				.flatMap(async () => {
 					return AsyncOperation.succeed(2);
