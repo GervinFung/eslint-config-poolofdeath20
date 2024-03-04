@@ -1,3 +1,7 @@
+## 0.7.0 (4 Mar 2024)
+
+-   (Feat) Add `ifSome` and `ifNone` to execute function without returning value
+
 ## 0.6.12 (12 Jan 2024)
 
 -   (Feat) Add a `Return` type to handle both return type of both non-async and async function

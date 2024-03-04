@@ -57,6 +57,18 @@ class Optional<T> {
 		return new Optional(undefined);
 	};
 
+	readonly ifSome = (fn: (value: NonNullable<T>) => void) => {
+		if (this.isSome()) {
+			fn(this.unwrapOrThrow('value is null or undefined'));
+		}
+	};
+
+	readonly ifNone = (fn: () => void) => {
+		if (this.isNone()) {
+			fn();
+		}
+	};
+
 	readonly unwrapOrGet = <T>(t: T) => {
 		return Defined.parse(this.value).orGet(t);
 	};
