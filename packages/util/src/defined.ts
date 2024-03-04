@@ -9,7 +9,7 @@ class Defined<T> {
 		return new this(value);
 	};
 
-	readonly map = <R>(fn: (value: T) => Kind<R>) => {
+	readonly map = <R>(fn: (value: T) => NonNullable<R>) => {
 		if (isNeitherNullNorUndefined(this.value)) {
 			return new Defined(fn(this.value));
 		}

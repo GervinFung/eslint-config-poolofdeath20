@@ -1,4 +1,5 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+
 import { Optional } from '../src/optional';
 
 describe('Optional structure', () => {
@@ -54,8 +55,24 @@ describe('Optional structure', () => {
 		expect(result.isNone()).toBe(output === undefined);
 	});
 
-	it('should run return appropriate result based on value', () => {
-		const some = Optional.some([1, 2, 3]).match({
+	it('should run/return appropriate function/result based on value', () => {
+		const functions = {
+			ifSome: () => {},
+			ifNone: () => {},
+		};
+
+		const ifSomeSpy = vi.spyOn(functions, 'ifSome');
+		const ifNoneSpy = vi.spyOn(functions, 'ifNone');
+
+		const somes = Optional.some([1, 2, 3]);
+
+		somes.ifSome(functions.ifSome);
+		somes.ifNone(functions.ifNone);
+
+		expect(ifSomeSpy).toHaveBeenCalledTimes(1);
+		expect(ifNoneSpy).toHaveBeenCalledTimes(0);
+
+		const matchSome = somes.match({
 			some: (value) => {
 				return value.at(-1);
 			},
@@ -64,9 +81,17 @@ describe('Optional structure', () => {
 			},
 		});
 
-		expect(some).toStrictEqual(3);
+		expect(matchSome).toStrictEqual(3);
 
-		const none = Optional.none<Date>().match({
+		const none = Optional.none<Date>();
+
+		none.ifNone(functions.ifNone);
+		none.ifSome(functions.ifSome);
+
+		expect(ifNoneSpy).toHaveBeenCalledTimes(1);
+		expect(ifSomeSpy).toHaveBeenCalledTimes(1);
+
+		const matchNone = none.match({
 			some: (value) => {
 				return value.getTime();
 			},
@@ -75,6 +100,6 @@ describe('Optional structure', () => {
 			},
 		});
 
-		expect(none).toBe(3);
+		expect(matchNone).toBe(3);
 	});
 });
