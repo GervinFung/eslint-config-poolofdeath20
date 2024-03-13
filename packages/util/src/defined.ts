@@ -1,6 +1,6 @@
 import { isNeitherNullNorUndefined } from './guard';
 
-type Kind<T> = NonNullable<T> | null | undefined;
+type Kind<T> = T | null | undefined;
 
 class Defined<T> {
 	constructor(private readonly value: Kind<T>) {}

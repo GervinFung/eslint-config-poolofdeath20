@@ -1,3 +1,7 @@
+## 0.7.1 (4 Mar 2024)
+
+-   (Fix) Fix type of `Defined` to take in value of union type
+
 ## 0.7.0 (4 Mar 2024)
 
 -   (Feat) Add `ifSome` and `ifNone` to execute function without returning value
