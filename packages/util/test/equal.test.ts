@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { equal } from '../src/equal';
+import { equal, equalTo } from '../src/equal';
 
 describe('A deep equal function', () => {
 	it.each([
@@ -30,7 +30,9 @@ describe('A deep equal function', () => {
 		},
 	])('should assert if two values are equal', ({ value, expected }) => {
 		expect(equal(value, expected)).toBe(true);
+		expect(equalTo(value)(expected)).toBe(true);
 
 		expect(equal(value, undefined)).toBe(false);
+		expect(equalTo(value)(undefined)).toBe(false);
 	});
 });

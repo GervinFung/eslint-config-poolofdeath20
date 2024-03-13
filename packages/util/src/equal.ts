@@ -46,9 +46,16 @@ const equal = (x: unknown, y: unknown) => {
 	return true;
 };
 
+const equalTo = (x: unknown) => {
+	return (y: unknown) => {
+		return equal(x, y);
+	};
+};
+
 interface Equal {
 	isEqual: <Child extends Equal>(child: Child) => boolean;
 }
 
-export { equal };
 export type { Equal };
+
+export { equal, equalTo };
