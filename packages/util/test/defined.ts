@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { Defined } from '../src/defined';
 
 describe('Define structure', () => {
@@ -34,5 +34,23 @@ describe('Define structure', () => {
 		expect(() => {
 			Defined.parse(null).orThrow('hi');
 		}).toThrowError('hi');
+	});
+
+	it('should run appropriate function based on value', () => {
+		const functions = {
+			ifDefined: () => {},
+			ifNotDefined: () => {},
+		};
+
+		const ifDefinedSpy = vi.spyOn(functions, 'ifDefined');
+		const ifNotDefinedSpy = vi.spyOn(functions, 'ifNotDefined');
+
+		Defined.parse(1).ifDefined(functions.ifDefined);
+
+		expect(ifDefinedSpy).toHaveBeenCalledTimes(1);
+
+		Defined.parse(undefined).ifDefined(functions.ifNotDefined);
+
+		expect(ifNotDefinedSpy).toHaveBeenCalledTimes(0);
 	});
 });

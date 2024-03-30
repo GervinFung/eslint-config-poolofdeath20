@@ -9,12 +9,22 @@ class Defined<T> {
 		return new this(value);
 	};
 
+	private readonly isSome = () => {
+		return isNeitherNullNorUndefined(this.value);
+	};
+
 	readonly map = <R>(fn: (value: T) => NonNullable<R>) => {
-		if (isNeitherNullNorUndefined(this.value)) {
-			return new Defined(fn(this.value));
+		if (this.isSome()) {
+			return new Defined(fn(this.value as T));
 		}
 
 		return new Defined<R>(undefined);
+	};
+
+	readonly ifDefined = (fn: (value: NonNullable<T>) => void) => {
+		if (this.isSome()) {
+			fn(this.orThrow('value is null or undefined'));
+		}
 	};
 
 	readonly orGet = <T>(t: T) => {

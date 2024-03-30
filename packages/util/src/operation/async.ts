@@ -45,14 +45,14 @@ abstract class AsyncResult<T> {
 
 	readonly match = <S, F>(
 		props: Readonly<{
-			onSucceed: (data: NonNullable<T>) => S;
-			onFailed: (reason: Error) => F;
+			succeed: (data: NonNullable<T>) => S;
+			failed: (reason: Error) => F;
 		}>
 	) => {
 		if (this.hadSucceed()) {
-			return props.onSucceed(this.data());
+			return props.succeed(this.data());
 		} else if (this.hadFailed()) {
-			return props.onFailed(this.reason());
+			return props.failed(this.reason());
 		}
 
 		throw new Error('instance can only be either succeed or failed');

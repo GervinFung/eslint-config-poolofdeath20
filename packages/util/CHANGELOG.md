@@ -1,3 +1,7 @@
+## 0.8.0 (30 Mar 2024)
+
+-   (Feat) Add `ifDefined` for `Defined`
+
 ## 0.7.1 (4 Mar 2024)
 
 -   (Fix) Fix type of `Defined` to take in value of union type
