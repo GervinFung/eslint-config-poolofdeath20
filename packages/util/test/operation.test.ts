@@ -77,10 +77,10 @@ describe('Operation structure', () => {
 
 			expect(
 				Operation.succeed(1).match({
-					onSucceed: (number) => {
+					succeed: (number) => {
 						return number + 2;
 					},
-					onFailed: (reason) => {
+					failed: (reason) => {
 						return {
 							reason,
 						};
@@ -110,10 +110,10 @@ describe('Promisified Operation structure', () => {
 
 		expect(
 			errorFailed.match({
-				onSucceed: () => {
+				succeed: () => {
 					return false;
 				},
-				onFailed: () => {
+				failed: () => {
 					return true;
 				},
 			})

@@ -42,16 +42,16 @@ class Optional<T> {
 	};
 
 	readonly map = <R>(fn: (value: T) => NonNullable<R>) => {
-		if (isNeitherNullNorUndefined(this.value)) {
-			return new Optional(fn(this.value));
+		if (this.isSome()) {
+			return new Optional(fn(this.value as NonNullable<T>));
 		}
 
 		return new Optional(undefined);
 	};
 
 	readonly flatMap = <R>(fn: (value: T) => Optional<NonNullable<R>>) => {
-		if (isNeitherNullNorUndefined(this.value)) {
-			return fn(this.value);
+		if (this.isSome()) {
+			return fn(this.value as NonNullable<T>);
 		}
 
 		return new Optional(undefined);
