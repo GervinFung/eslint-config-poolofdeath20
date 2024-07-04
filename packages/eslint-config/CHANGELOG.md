@@ -1,3 +1,7 @@
+## 0.3.4 (6 Jul 2024)
+
+-   (Fix) Publish compiled files for `eslint-config`
+
 ## 0.3.3 (5 Jul 2024)
 
 -   (Fix) Turn off `react/jsx-uses-react` and `react/react-in-jsx-scope`
