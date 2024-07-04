@@ -1,12 +1,16 @@
-## 0.3.2 (29 Sept 2023)
+## 0.3.3 (5 Jul 2024)
+
+-   (Fix) Turn off `react/jsx-uses-react` and `react/react-in-jsx-scope`
+
+## 0.3.2 (29 Sep 2023)
 
 -   (Fix) Updated peer dependencies
 
-## 0.3.1 (29 Sept 2023)
+## 0.3.1 (29 Sep 2023)
 
 -   (Fix) Added `next` for exports
 
-## 0.3.0 (29 Sept 2023)
+## 0.3.0 (29 Sep 2023)
 
 -   (Feat) Added config for `nextjs` and detect react version
 
