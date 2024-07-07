@@ -24,7 +24,7 @@
 		"prettier": "*"
 	},
 	"devDependencies": {
-		"ts-add-js-extension": "^1.5.8"
+		"ts-add-js-extension": "^1.6.4"
 	},
 	"keywords": [
 		"prettier config",
