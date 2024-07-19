@@ -50,7 +50,7 @@ describe('Browser utils', () => {
 	describe('In browser', () => {
 		it('should return values that were in browser', async () => {
 			const browser = await puppeteer.launch({
-				headless: 'new',
+				headless: true,
 			});
 
 			const page = await browser.newPage();
