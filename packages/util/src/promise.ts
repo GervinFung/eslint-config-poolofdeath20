@@ -1,9 +1,11 @@
 import { Optional } from '.';
 
+type Callback<T> = undefined | (() => Promise<T>);
+
 const sleepInMilliseconds = <T>(
 	props: Readonly<{
 		milliseconds: number;
-		callback?: () => Promise<T>;
+		callback?: Callback<T>;
 	}>
 ) => {
 	return new Promise<Optional<T>>((resolve) => {
@@ -17,7 +19,7 @@ const sleepInMilliseconds = <T>(
 const sleepInSeconds = <T>(
 	props: Readonly<{
 		seconds: number;
-		callback?: () => Promise<T>;
+		callback?: Callback<T>;
 	}>
 ) => {
 	return sleepInMilliseconds({
