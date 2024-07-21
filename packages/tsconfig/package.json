@@ -1,7 +1,7 @@
 {
 	"name": "@poolofdeath20/tsconfig",
 	"description": "My tsconfig",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"license": "MIT",
 	"exports": {
 		"./react": {

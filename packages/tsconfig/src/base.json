@@ -1,22 +1,41 @@
 {
 	"compilerOptions": {
-		"allowJs": false,
-		"checkJs": false,
-		"strict": true,
-		"skipLibCheck": true,
+		// typecheck
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"exactOptionalPropertyTypes": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noUncheckedIndexedAccess": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"noImplicitReturns": true,
-		"noFallthroughCasesInSwitch": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"allowSyntheticDefaultImports": true,
+		"useUnknownInCatchVariables": true,
+		"strict": true,
+
+		// modules
 		"resolveJsonModule": true,
-		"noUncheckedIndexedAccess": true,
-		"pretty": true,
-		"verbatimModuleSyntax": true,
-		"noEmit": true,
 		"module": "esnext",
-		"moduleResolution": "bundler"
+		"moduleResolution": "bundler",
+
+		// emit
+		"noEmit": true,
+
+		// interop
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"verbatimModuleSyntax": true,
+
+		// output formatting
+		"pretty": true,
+
+		// completeness
+		"skipLibCheck": true,
+
+		// js
+		"allowJs": false,
+		"checkJs": false
 	}
 }
