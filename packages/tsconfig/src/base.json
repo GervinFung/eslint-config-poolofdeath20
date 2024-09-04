@@ -35,7 +35,7 @@
 		"skipLibCheck": true,
 
 		// js
-		"allowJs": false,
-		"checkJs": false
+		"allowJs": true,
+		"checkJs": true
 	}
 }
