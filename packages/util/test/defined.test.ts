@@ -38,7 +38,9 @@ describe('Define structure', () => {
 
 	it('should run appropriate function based on value', () => {
 		const functions = {
+			// eslint-disable-next-line @typescript-eslint/no-empty-function
 			ifDefined: () => {},
+			// eslint-disable-next-line @typescript-eslint/no-empty-function
 			ifNotDefined: () => {},
 		};
 

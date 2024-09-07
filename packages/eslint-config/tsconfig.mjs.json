@@ -1,0 +1,15 @@
+{
+	"extends": ["@poolofdeath20/tsconfig/node"],
+	"compilerOptions": {
+		"skipLibCheck": true,
+		"noEmit": false,
+		"declaration": true,
+		"declarationMap": false,
+		"sourceMap": true,
+		"module": "esnext",
+		"outDir": "build",
+		"target": "esnext"
+	},
+	"include": ["src"],
+	"exclude": ["node_modules"]
+}

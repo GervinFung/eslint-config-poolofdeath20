@@ -1,34 +1,103 @@
+import type { ConfigWithExtends } from 'typescript-eslint';
+import { fixupPluginRules } from '@eslint/compat';
+// @ts-expect-error: Missing types for 'eslint-plugin-import'
+import eslintPluginImport from 'eslint-plugin-import';
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
+const importRules = Object.keys(eslintPluginImport.rules).reduce(
+	(rules, rule) => {
+		return {
+			...rules,
+			[`import/${rule}`]: 'error',
+		};
+	},
+	{}
+);
+
 const base = {
-	root: true,
-	parser: '@typescript-eslint/parser',
-	plugins: ['@typescript-eslint'],
-	extends: [
-		'eslint:recommended',
-		'plugin:@typescript-eslint/eslint-recommended',
-		'plugin:@typescript-eslint/recommended',
-		'plugin:import/recommended',
-	],
+	linterOptions: {
+		reportUnusedDisableDirectives: 'error',
+	},
+	languageOptions: {
+		parserOptions: {
+			projectService: true,
+			tsconfigRootDir: process.cwd(),
+		},
+	},
+	plugins: {
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+		import: fixupPluginRules(eslintPluginImport),
+	},
 	rules: {
-		'@typescript-eslint/explicit-function-return-type': 'off',
-		'@typescript-eslint/explicit-module-boundary-types': 'off',
-		'@typescript-eslint/ban-types': 'off',
-		'@typescript-eslint/no-extra-semi': 'error',
-		'@typescript-eslint/member-delimiter-style': 'off',
-		'@typescript-eslint/no-explicit-any': 'error',
-		'@typescript-eslint/no-var-requires': 'error',
-		'@typescript-eslint/no-empty-function': 'off',
-		'@typescript-eslint/camelcase': 'off',
-		'no-async-promise-executor': 'off',
-		'@typescript-eslint/no-namespace': 'off',
-		'no-fallthrough': 'off',
+		...{
+			...importRules,
+			['import/no-unresolved']: 'off',
+			['import/no-nodejs-modules']: 'off',
+			['import/no-internal-modules']: 'off',
+			['import/default']: 'off',
+			['import/namespace']: 'off',
+			['import/no-deprecated']: 'off',
+			['import/prefer-default-export']: 'off',
+			['import/no-named-as-default']: 'off',
+			['import/no-named-as-default-member']: 'off',
+			['import/no-relative-parent-imports']: 'off',
+			'import/max-dependencies': [
+				'error',
+				{
+					max: 16,
+					ignoreTypeImports: true,
+				},
+			],
+			'import/extensions': [
+				'error',
+				{
+					json: 'always',
+				},
+			],
+			'import/order': [
+				'error',
+				{
+					groups: [
+						'type',
+						'builtin',
+						'external',
+						'internal',
+						'parent',
+						'sibling',
+						'index',
+						'object',
+					],
+					'newlines-between': 'always',
+					alphabetize: { order: 'asc', caseInsensitive: true },
+				},
+			],
+			'import/no-unassigned-import': [
+				'error',
+				{
+					allow: ['**/*.css'],
+				},
+			],
+		},
+		'@typescript-eslint/array-type': [
+			'error',
+			{
+				default: 'generic',
+			},
+		],
+		'@typescript-eslint/consistent-type-definitions': ['error', 'type'],
 		'@typescript-eslint/no-unused-vars': [
 			'error',
-			{ argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+			{
+				args: 'all',
+				argsIgnorePattern: '^_',
+				caughtErrors: 'all',
+				caughtErrorsIgnorePattern: '^ignore',
+				destructuredArrayIgnorePattern: '^_',
+				ignoreRestSiblings: true,
+			},
 		],
-		'import/no-anonymous-default-export': 'error',
-		'import/no-unresolved': 'off',
-		'import/named': 'off',
-		'no-constant-condition': 'error',
+		'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
+		'arrow-body-style': ['error', 'always'],
 		'no-restricted-syntax': [
 			'error',
 			{
@@ -36,10 +105,7 @@ const base = {
 				message: "Don't declare enums",
 			},
 		],
-		semi: ['error', 'always'],
-		'arrow-body-style': ['error', 'always'],
-		'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
 	},
-} as const;
+} as const satisfies ConfigWithExtends;
 
-export default base;
+export { base };

@@ -1,4 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 class Empty {
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	private constructor() {}
 
 	static readonly of = () => {

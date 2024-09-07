@@ -73,6 +73,7 @@ describe('Browser utils', () => {
 			);
 
 			const result = await page.evaluate((code) => {
+				// eslint-disable-next-line @typescript-eslint/no-implied-eval
 				new Function(code)();
 
 				return {
