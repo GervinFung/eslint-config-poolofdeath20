@@ -33,7 +33,7 @@
 	"devDependencies": {
 		"esbuild": "^0.23.1",
 		"node-package-helper": "github:GervinFung/node-package-helper",
-		"puppeteer": "^22.15.0",
+		"puppeteer": "^23.3.0",
 		"ts-add-js-extension": "^1.6.4"
 	},
 	"keywords": [
