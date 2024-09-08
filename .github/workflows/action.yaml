@@ -32,13 +32,13 @@ jobs:
             - name: Install Depedencies
               run: pnpm i
 
-            - name: Run Format Check
+            - name: Check Format
               run: pnpm format-check
 
             - name: Run Tests
               run: pnpm test
 
-            - name: Run Build
+            - name: Produce Build
               run: pnpm build
 
             - name: Run Linter
