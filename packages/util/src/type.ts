@@ -30,7 +30,6 @@ type Return<T extends (...args: any) => any> = T extends (
 	? Awaited<R>
 	: never;
 
-export type { Argument, Return };
-export type { DeepReadonly, DeepReadonlyObject };
+export type { Argument, Return, DeepReadonly, DeepReadonlyObject };
 
 export { nullToUndefined };

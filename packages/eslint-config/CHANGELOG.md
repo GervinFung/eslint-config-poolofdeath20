@@ -1,4 +1,4 @@
-## 0.4.0 (7 Sep 2024)
+## 0.4.0 (8 Sep 2024)
 
 -   (Patch) Handle eslint `v9` flag config
 
