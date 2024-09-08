@@ -26,7 +26,6 @@ export default tseslint.config(
 	...tseslint.configs.recommendedTypeChecked,
 	...tseslint.configs.strict,
 	...tseslint.configs.stylistic,
-	node,
 	{
 		...node,
 		rules: {
