@@ -10,7 +10,11 @@ const sleepInMilliseconds = <T>(
 ) => {
 	return new Promise<Optional<T>>((resolve) => {
 		setTimeout(() => {
-			void props.callback?.().then(Optional.from).then(resolve);
+			void (props.callback?.() ?? Promise.resolve(undefined)).then(
+				(value) => {
+					resolve(Optional.from(value));
+				}
+			);
 		}, props.milliseconds);
 	});
 };
