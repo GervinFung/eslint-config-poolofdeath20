@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { Empty } from '../src/empty-value';
 
 describe('A empty value as an alternative to null/undefined', () => {

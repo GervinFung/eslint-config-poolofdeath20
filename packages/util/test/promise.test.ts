@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import {
 	sequentialPromise,
 	sleepInMilliseconds,
@@ -9,14 +10,14 @@ describe('A promise helper', () => {
 	it.each([
 		{
 			seconds: {
-				callback: async () => {
-					return true;
+				callback: () => {
+					return Promise.resolve(true);
 				},
 				expected: true,
 			},
 			milliseconds: {
-				callback: async () => {
-					return 'hi';
+				callback: () => {
+					return Promise.resolve('hi');
 				},
 				expected: 'hi',
 			},
@@ -73,8 +74,8 @@ describe('A promise helper', () => {
 
 		const result = await sequentialPromise(
 			indexes.map((index) => {
-				return async () => {
-					return index;
+				return () => {
+					return Promise.resolve(index);
 				};
 			})
 		);

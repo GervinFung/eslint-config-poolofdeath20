@@ -14,7 +14,7 @@ abstract class AsyncResult<T> {
 		return this._props;
 	};
 
-	readonly toJson = async (): Promise<
+	readonly toJson = (): Promise<
 		Readonly<
 			| {
 					hadSucceed: true;
@@ -27,17 +27,17 @@ abstract class AsyncResult<T> {
 		>
 	> => {
 		if (this.hadFailed()) {
-			return {
+			return Promise.resolve({
 				hadSucceed: false,
 				reason: this.reason(),
-			};
+			});
 		}
 
 		if (this.hadSucceed()) {
-			return {
+			return Promise.resolve({
 				hadSucceed: true,
-				data: await this.data(),
-			};
+				data: this.data(),
+			});
 		}
 
 		throw new Error('instance can only be either succeed or failed');
@@ -139,6 +139,7 @@ class Failed extends AsyncResult<never> {
 	};
 }
 
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 class AsyncOperation {
 	static readonly succeed = <T>(data: NonNullable<T>) => {
 		return Succeed.create(data);

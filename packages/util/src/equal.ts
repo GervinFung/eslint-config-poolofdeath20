@@ -52,6 +52,7 @@ const equalTo = (x: unknown) => {
 	};
 };
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 interface Equal {
 	isEqual: <Child extends Equal>(child: Child) => boolean;
 }

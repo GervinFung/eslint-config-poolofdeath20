@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+
 import { Defined } from '../src/defined';
 
 describe('Define structure', () => {
@@ -38,7 +39,9 @@ describe('Define structure', () => {
 
 	it('should run appropriate function based on value', () => {
 		const functions = {
+			// eslint-disable-next-line @typescript-eslint/no-empty-function
 			ifDefined: () => {},
+			// eslint-disable-next-line @typescript-eslint/no-empty-function
 			ifNotDefined: () => {},
 		};
 

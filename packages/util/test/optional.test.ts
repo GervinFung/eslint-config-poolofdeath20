@@ -57,7 +57,9 @@ describe('Optional structure', () => {
 
 	it('should run/return appropriate function/result based on value', () => {
 		const functions = {
+			// eslint-disable-next-line @typescript-eslint/no-empty-function
 			ifSome: () => {},
+			// eslint-disable-next-line @typescript-eslint/no-empty-function
 			ifNone: () => {},
 		};
 

@@ -2,10 +2,9 @@ import { isFalse, isTruthy } from './boolean';
 import { isNeitherNullNorUndefined } from './guard';
 
 declare global {
+	// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 	interface ArrayConstructor {
-		isArray(
-			arg: ReadonlyArray<unknown> | unknown
-		): arg is ReadonlyArray<unknown>;
+		isArray<T>(arg: ReadonlyArray<T> | T): arg is ReadonlyArray<T>;
 	}
 }
 
@@ -28,9 +27,9 @@ const getPreferredMode = () => {
 type FormQueryParamUnit = string | number | boolean | undefined | null;
 
 const formQueryParamStringFromRecord = (
-	params: Readonly<{
-		[key: string]: FormQueryParamUnit | ReadonlyArray<FormQueryParamUnit>;
-	}>
+	params: Readonly<
+		Record<string, FormQueryParamUnit | ReadonlyArray<FormQueryParamUnit>>
+	>
 ) => {
 	return Object.entries(params)
 		.flatMap(([key, value]) => {
@@ -75,9 +74,7 @@ const formQueryParamRecordFromString = (queryParam: string) => {
 					[key]: value,
 				};
 			},
-			{} as Readonly<{
-				[key: string]: string | ReadonlyArray<string>;
-			}>
+			{} as Readonly<Record<string, string | ReadonlyArray<string>>>
 		);
 };
 

@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { Operation, AsyncOperation } from '../src/operation';
 
 describe('Operation structure', () => {
@@ -143,12 +144,12 @@ describe('Promisified Operation structure', () => {
 					? AsyncOperation.succeed(1)
 					: AsyncOperation.failed('error')
 			)
-				.flatMap(async () => {
-					return AsyncOperation.succeed(2);
+				.flatMap(() => {
+					return Promise.resolve(AsyncOperation.succeed(2));
 				})
 				.then((value) => {
-					return value.flatMap(async () => {
-						return AsyncOperation.succeed(2);
+					return value.flatMap(() => {
+						return Promise.resolve(AsyncOperation.succeed(2));
 					});
 				});
 
@@ -178,8 +179,8 @@ describe('Promisified Operation structure', () => {
 	])(
 		'should conditionally invoke different path depending on result status',
 		async ({ input, output }) => {
-			const result = await AsyncOperation.succeed(1).map(async () => {
-				return input;
+			const result = await AsyncOperation.succeed(1).map(() => {
+				return Promise.resolve(input);
 			});
 
 			expect(result.hadFailed()).toBe(output.hasFailed);

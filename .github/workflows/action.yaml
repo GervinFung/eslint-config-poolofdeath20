@@ -32,9 +32,6 @@ jobs:
             - name: Install Depedencies
               run: pnpm i
 
-            - name: Run Linter
-              run: pnpm lint
-
             - name: Run Format Check
               run: pnpm format-check
 
@@ -43,3 +40,6 @@ jobs:
 
             - name: Run Build
               run: pnpm build
+
+            - name: Run Linter
+              run: pnpm lint

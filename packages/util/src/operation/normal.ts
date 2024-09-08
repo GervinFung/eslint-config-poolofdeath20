@@ -135,6 +135,7 @@ class Failed extends Result<never> {
 	};
 }
 
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 class Operation {
 	static readonly succeed = <T>(data: NonNullable<T>) => {
 		return Succeed.create(data);

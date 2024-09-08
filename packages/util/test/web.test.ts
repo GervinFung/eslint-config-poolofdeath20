@@ -2,13 +2,13 @@ import esbuild from 'esbuild';
 import puppeteer from 'puppeteer';
 import { describe, expect, it } from 'vitest';
 
+import { Optional } from '../src/optional';
 import {
 	formQueryParamRecordFromString,
 	formQueryParamStringFromRecord,
 	getPreferredMode,
 	isBrowser,
 } from '../src/web';
-import { Optional } from '../src/optional';
 
 describe('Browser utils', () => {
 	it('should form query params record to string', () => {
@@ -73,6 +73,7 @@ describe('Browser utils', () => {
 			);
 
 			const result = await page.evaluate((code) => {
+				// eslint-disable-next-line @typescript-eslint/no-implied-eval
 				new Function(code)();
 
 				return {

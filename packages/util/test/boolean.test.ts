@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { isFalse, isFalsy, isTruthy } from '../src/boolean';
 
 describe('A boolean wrapper with a function that should be able to determines whether it is true/false', () => {

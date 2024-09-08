@@ -1,3 +1,7 @@
+## 0.4.0 (8 Sep 2024)
+
+-   (Patch) Handle eslint `v9` flag config
+
 ## 0.3.4 (6 Jul 2024)
 
 -   (Fix) Publish compiled files for `eslint-config`
