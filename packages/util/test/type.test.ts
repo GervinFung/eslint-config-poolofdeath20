@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { nullToUndefined } from '../src/type';
 
 describe('Type should be manipulated with and can be checked', () => {

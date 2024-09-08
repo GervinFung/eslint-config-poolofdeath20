@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { Operation, AsyncOperation } from '../src/operation';
 
 describe('Operation structure', () => {

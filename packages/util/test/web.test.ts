@@ -2,13 +2,13 @@ import esbuild from 'esbuild';
 import puppeteer from 'puppeteer';
 import { describe, expect, it } from 'vitest';
 
+import { Optional } from '../src/optional';
 import {
 	formQueryParamRecordFromString,
 	formQueryParamStringFromRecord,
 	getPreferredMode,
 	isBrowser,
 } from '../src/web';
-import { Optional } from '../src/optional';
 
 describe('Browser utils', () => {
 	it('should form query params record to string', () => {

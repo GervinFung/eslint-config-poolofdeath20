@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { capitalize, isBlank, isEmpty } from '../src/string';
 
 describe('String should be manipulated with and can be checked', () => {

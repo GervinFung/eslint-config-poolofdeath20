@@ -1,5 +1,6 @@
-import { fixupPluginRules } from '@eslint/compat';
 import type { ConfigWithExtends } from 'typescript-eslint';
+
+import { fixupPluginRules } from '@eslint/compat';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
 // @ts-expect-error: Missing types for 'eslint-plugin-react'
 import eslintPluginReact from 'eslint-plugin-react';

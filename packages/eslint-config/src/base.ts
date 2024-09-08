@@ -1,4 +1,5 @@
 import type { ConfigWithExtends } from 'typescript-eslint';
+
 import { fixupPluginRules } from '@eslint/compat';
 // @ts-expect-error: Missing types for 'eslint-plugin-import'
 import eslintPluginImport from 'eslint-plugin-import';
