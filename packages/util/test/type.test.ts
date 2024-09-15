@@ -1,6 +1,8 @@
+import type { Argument, DeepReadonly, Return } from '../src/type';
+
 import { describe, expect, expectTypeOf, it } from 'vitest';
 
-import { Argument, DeepReadonly, Return, nullToUndefined } from '../src/type';
+import { nullToUndefined } from '../src/type';
 
 describe('Type should be manipulated with and can be checked', () => {
 	it('should convert nullable value to undefinable value', () => {
@@ -28,9 +30,9 @@ describe('Type should be manipulated with and can be checked', () => {
 			}>
 		>();
 
-		type Func = (a: number, b: number) => Promise<number>;
+		type Fn = (condition: boolean) => Promise<1 | 2>;
 
-		expectTypeOf<Argument<Func>>().toMatchTypeOf<Parameters<Func>[0]>();
-		expectTypeOf<Return<Func>>().toMatchTypeOf<Awaited<ReturnType<Func>>>();
+		expectTypeOf<Argument<Fn>>().toMatchTypeOf<Parameters<Fn>[0]>();
+		expectTypeOf<Return<Fn>>().toMatchTypeOf<Awaited<ReturnType<Fn>>>();
 	});
 });
