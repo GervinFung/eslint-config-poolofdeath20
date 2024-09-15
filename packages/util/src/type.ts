@@ -1,6 +1,9 @@
-const nullToUndefined = <T>(value: NonNullable<T> | null) => {
+const nullToUndefined = <T>(value: T | null) => {
 	return value ?? undefined;
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Function = (...parameters: any) => unknown;
 
 type DeepReadonly<T> =
 	T extends Array<infer R>
@@ -9,8 +12,7 @@ type DeepReadonly<T> =
 			? ReadonlySet<DeepReadonly<R>>
 			: T extends Map<infer K, infer V>
 				? ReadonlyMap<DeepReadonly<K>, DeepReadonly<V>>
-				: // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
-					T extends Function
+				: T extends Function
 					? T
 					: T extends object
 						? DeepReadonlyObject<T>
@@ -20,13 +22,10 @@ type DeepReadonlyObject<T> = {
 	readonly [P in keyof T]: DeepReadonly<T[P]>;
 };
 
-/* eslint-disable  @typescript-eslint/no-explicit-any */
-type Argument<T extends (...parameters: any) => unknown> = Parameters<T>[0];
+type Argument<T extends Function> = Parameters<T>[0];
 
-/* eslint-disable  @typescript-eslint/no-explicit-any */
-type Return<T extends (...args: any) => any> = T extends (
-	...args: any
-) => infer R
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Return<T extends Function> = T extends (...parameters: any) => infer R
 	? Awaited<R>
 	: never;
 
