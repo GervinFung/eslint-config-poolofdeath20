@@ -11,7 +11,7 @@ describe('Type should be manipulated with and can be checked', () => {
 		expect(nullToUndefined(true)).toBe(true);
 	});
 
-	it('should assert custom type behave the same when compared to util type', () => {
+	it('should assert custom type can derive/infer type', () => {
 		expectTypeOf<
 			DeepReadonly<{
 				a: {
@@ -32,7 +32,7 @@ describe('Type should be manipulated with and can be checked', () => {
 
 		type Fn = (condition: boolean) => Promise<1 | 2>;
 
-		expectTypeOf<Argument<Fn>>().toMatchTypeOf<Parameters<Fn>[0]>();
-		expectTypeOf<Return<Fn>>().toMatchTypeOf<Awaited<ReturnType<Fn>>>();
+		expectTypeOf<Argument<Fn>>().toMatchTypeOf<boolean>();
+		expectTypeOf<Return<Fn>>().toMatchTypeOf<1 | 2>();
 	});
 });
