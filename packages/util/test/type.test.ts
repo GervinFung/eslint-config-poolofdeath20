@@ -11,7 +11,7 @@ describe('Type should be manipulated with and can be checked', () => {
 		expect(nullToUndefined(true)).toBe(true);
 	});
 
-	it('should test the DeepReadonly type', () => {
+	it('should assert custom type behave the same when compared to util type', () => {
 		expectTypeOf<
 			DeepReadonly<{
 				a: {
