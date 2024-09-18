@@ -1,3 +1,7 @@
+## 0.8.1 (18 Sept 2024)
+
+-   (Fix) Fix `DeepReadonly` ot handle more cases
+
 ## 0.8.0 (30 Mar 2024)
 
 -   (Feat) Add `ifDefined` for `Defined`
