@@ -11,6 +11,7 @@ type SetLike<V> = Set<V> | ReadonlySet<V>;
 
 type ArrayLike<T> = Array<T> | ReadonlyArray<T>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Tuple<T> = T extends [any, ...any] ? T : never;
 
 type DeepReadonlyObject<T> = Readonly<{
@@ -25,6 +26,7 @@ type Native =
 	| symbol
 	| undefined
 	| null
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 	| Function
 	| Date
 	| RegExp;
