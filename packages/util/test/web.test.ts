@@ -1,8 +1,8 @@
-import esbuild from 'esbuild';
+import * as esbuild from 'esbuild';
 import puppeteer from 'puppeteer';
 import { describe, expect, it } from 'vitest';
 
-import { Optional } from '../src/optional';
+import { Defined } from '../src/defined';
 import {
 	formQueryParamRecordFromString,
 	formQueryParamStringFromRecord,
@@ -67,9 +67,9 @@ describe('Browser utils', () => {
 			});
 
 			const code = new TextDecoder().decode(
-				Optional.from(
-					outputResult.outputFiles.at(0)?.contents
-				).unwrapOrThrow(new Error('No output file'))
+				Defined.parse(outputResult.outputFiles.at(0)?.contents).orThrow(
+					new Error('No output file')
+				)
 			);
 
 			const result = await page.evaluate((code) => {

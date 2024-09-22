@@ -1,6 +1,11 @@
+## 0.8.2 (22 Sept 2024)
+
+-   (Fix) Fix `DeepReadonly` to handle tuple better
+-   (Patch) Remove boolean handling
+
 ## 0.8.1 (18 Sept 2024)
 
--   (Fix) Fix `DeepReadonly` ot handle more cases
+-   (Fix) Fix `DeepReadonly` to handle more cases
 
 ## 0.8.0 (30 Mar 2024)
 

@@ -1,4 +1,3 @@
-import { isFalse, isTruthy } from './boolean';
 import { isNeitherNullNorUndefined } from './guard';
 
 declare global {
@@ -15,7 +14,7 @@ const isBrowser = () => {
 type Mode = ReturnType<typeof getPreferredMode>;
 
 const getPreferredMode = () => {
-	if (isFalse(isBrowser())) {
+	if (!isBrowser()) {
 		return 'dark';
 	}
 
@@ -37,7 +36,7 @@ const formQueryParamStringFromRecord = (
 		})
 		.map(([key, value]) => {
 			return `${key}=${encodeURIComponent(
-				!Array.isArray(value) ? value : value.filter(isTruthy).join(',')
+				!Array.isArray(value) ? value : value.filter(Boolean).join(',')
 			)}`;
 		})
 		.join('&');
