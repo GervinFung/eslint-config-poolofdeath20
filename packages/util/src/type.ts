@@ -11,8 +11,12 @@ type SetLike<V> = Set<V> | ReadonlySet<V>;
 
 type ArrayLike<T> = Array<T> | ReadonlyArray<T>;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Tuple<T> = T extends [any, ...any] ? T : never;
+type Tuple<T> =
+	T extends ReadonlyArray<unknown>
+		? ReadonlyArray<unknown> extends T
+			? never
+			: T
+		: never;
 
 type DeepReadonlyObject<T> = Readonly<{
 	[Key in keyof T]: DeepReadonly<T[Key]>;
