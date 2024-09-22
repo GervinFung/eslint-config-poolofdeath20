@@ -35,6 +35,9 @@ jobs:
             - name: Check Format
               run: pnpm format-check
 
+            - name: Pretest CI Setup
+              run: cd packages/util && pnpm pretest-ci
+
             - name: Run Tests
               run: pnpm test
 

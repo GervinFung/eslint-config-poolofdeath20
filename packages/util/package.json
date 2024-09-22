@@ -22,6 +22,7 @@
 		"build-mjs": "tsc -p tsconfig.mjs.json",
 		"build": "shx rm -rf build && pnpm build-cjs && pnpm build-mjs && pnpm postbuild",
 		"postbuild": "node-package-helper && ts-add-js-extension --dir=build/mjs",
+		"pretest-ci": "node node_modules/puppeteer/install.mjs",
 		"test": "vitest"
 	},
 	"homepage": "https://github.com/GervinFung/npm-tools",
