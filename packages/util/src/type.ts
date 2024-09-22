@@ -11,7 +11,6 @@ type SetLike<V> = Set<V> | ReadonlySet<V>;
 
 type ArrayLike<T> = Array<T> | ReadonlyArray<T>;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Tuple<T> =
 	T extends ReadonlyArray<unknown>
 		? ReadonlyArray<unknown> extends T

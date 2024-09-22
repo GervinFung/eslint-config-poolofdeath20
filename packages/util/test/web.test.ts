@@ -1,4 +1,4 @@
-import * as esbuild from 'esbuild';
+import { build } from 'esbuild';
 import puppeteer from 'puppeteer';
 import { describe, expect, it } from 'vitest';
 
@@ -59,7 +59,7 @@ describe('Browser utils', () => {
 				{ name: 'prefers-color-scheme', value: 'light' },
 			]);
 
-			const outputResult = await esbuild.build({
+			const outputResult = await build({
 				minify: true,
 				bundle: true,
 				write: false,
