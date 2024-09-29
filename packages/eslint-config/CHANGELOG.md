@@ -1,3 +1,7 @@
+## 0.4.1 (29 Sep 2024)
+
+-   (Fix) Handled `strict-type-checked` and `stylistic-type-checked`
+
 ## 0.4.0 (8 Sep 2024)
 
 -   (Patch) Handle eslint `v9` flag config
