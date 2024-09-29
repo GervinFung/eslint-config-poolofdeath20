@@ -7,7 +7,7 @@ class Empty {
 		return new this();
 	};
 
-	static readonly isEmpty = <T>(t: T | Empty): t is Empty => {
+	static readonly isEmpty = (t: unknown): t is Empty => {
 		return t instanceof Empty;
 	};
 

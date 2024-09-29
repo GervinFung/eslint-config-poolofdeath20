@@ -106,6 +106,7 @@ const base = {
 		],
 		'@typescript-eslint/no-confusing-void-expression': 'off',
 		'@typescript-eslint/prefer-reduce-type-parameter': 'off',
+		'@typescript-eslint/non-nullable-type-assertion-style': 'off',
 		'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
 		'arrow-body-style': ['error', 'always'],
 		'no-restricted-syntax': [

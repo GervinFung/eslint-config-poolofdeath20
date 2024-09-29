@@ -77,7 +77,7 @@ class Optional<T> {
 		return Defined.parse(this.value).orElse(fn);
 	};
 
-	readonly unwrapOrThrow = <E extends Error>(error: E | string) => {
+	readonly unwrapOrThrow = (error: Error | string) => {
 		return Defined.parse(this.value).orThrow(error);
 	};
 }

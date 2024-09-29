@@ -35,7 +35,7 @@ class Defined<T> {
 		return isNeitherNullNorUndefined(this.value) ? this.value : fn();
 	};
 
-	readonly orThrow = <E extends Error>(error: E | string) => {
+	readonly orThrow = (error: Error | string) => {
 		if (isNeitherNullNorUndefined(this.value)) {
 			return this.value;
 		}
