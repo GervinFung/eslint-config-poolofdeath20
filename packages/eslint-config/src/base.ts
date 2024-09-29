@@ -97,6 +97,15 @@ const base = {
 				ignoreRestSiblings: true,
 			},
 		],
+		'@typescript-eslint/restrict-template-expressions': [
+			'error',
+			{
+				allowNumber: true,
+				allowBoolean: true,
+			},
+		],
+		'@typescript-eslint/no-confusing-void-expression': 'off',
+		'@typescript-eslint/prefer-reduce-type-parameter': 'off',
 		'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
 		'arrow-body-style': ['error', 'always'],
 		'no-restricted-syntax': [
