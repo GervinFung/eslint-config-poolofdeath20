@@ -41,18 +41,18 @@
 	],
 	"devDependencies": {
 		"@eslint/compat": "^1.1.1",
-		"@eslint/js": "^9.10.0",
-		"@next/eslint-plugin-next": "^14.2.8",
+		"@eslint/js": "^9.11.1",
+		"@next/eslint-plugin-next": "^14.2.13",
 		"@poolofdeath20/tsconfig": "workspace:^",
 		"@types/eslint-plugin-jsx-a11y": "^6.9.0",
 		"@types/eslint__js": "^8.42.3",
-		"@typescript-eslint/eslint-plugin": "^8.4.0",
-		"@typescript-eslint/parser": "^8.4.0",
+		"@typescript-eslint/eslint-plugin": "^8.7.0",
+		"@typescript-eslint/parser": "^8.7.0",
 		"eslint-plugin-import": "^2.30.0",
 		"eslint-plugin-jsx-a11y": "^6.10.0",
-		"eslint-plugin-react": "^7.35.2",
+		"eslint-plugin-react": "^7.37.0",
 		"eslint-plugin-react-hooks": "^4.6.2",
 		"ts-add-js-extension": "^1.6.4",
-		"typescript-eslint": "^8.4.0"
+		"typescript-eslint": "^8.7.0"
 	}
 }
