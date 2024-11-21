@@ -42,7 +42,7 @@
 	"devDependencies": {
 		"@eslint/compat": "^1.2.3",
 		"@eslint/js": "^9.15.0",
-		"@next/eslint-plugin-next": "^14.2.18",
+		"@next/eslint-plugin-next": "^15.0.3",
 		"@poolofdeath20/tsconfig": "workspace:^",
 		"@types/eslint-plugin-jsx-a11y": "^6.9.0",
 		"@types/eslint__js": "^8.42.3",
@@ -51,7 +51,7 @@
 		"eslint-plugin-import": "^2.31.0",
 		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"eslint-plugin-react": "^7.37.2",
-		"eslint-plugin-react-hooks": "^4.6.2",
+		"eslint-plugin-react-hooks": "^5.0.0",
 		"ts-add-js-extension": "^1.6.5",
 		"typescript-eslint": "^8.15.0"
 	}
