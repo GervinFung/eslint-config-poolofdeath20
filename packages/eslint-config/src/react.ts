@@ -1,8 +1,7 @@
-import type { ConfigWithExtends } from 'typescript-eslint';
+import type { TSESLint } from '@typescript-eslint/utils';
 
 import { fixupPluginRules } from '@eslint/compat';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
-// @ts-expect-error: Missing types for 'eslint-plugin-react'
 import eslintPluginReact from 'eslint-plugin-react';
 // @ts-expect-error: Missing types for 'eslint-plugin-react-hooks'
 import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
@@ -28,7 +27,8 @@ const react = {
 	plugins: {
 		...base.plugins,
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-		react: fixupPluginRules(eslintPluginReact),
+		// @ts-expect-error: Missing types for 'eslint-plugin-react'
+		react: eslintPluginReact,
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 		'react-hooks': fixupPluginRules(eslintPluginReactHooks),
 		'jsx-a11y': eslintPluginJsxA11y,
@@ -76,6 +76,6 @@ const react = {
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 		...eslintPluginReactHooks.configs.recommended.rules,
 	},
-} as const satisfies ConfigWithExtends;
+} as const satisfies TSESLint.FlatConfig.Config;
 
 export { react };
