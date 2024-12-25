@@ -2,8 +2,8 @@ import type { ConfigWithExtends } from 'typescript-eslint';
 
 import { base } from './base';
 
-const node = {
+const node: ConfigWithExtends = {
 	...base,
-} as const satisfies ConfigWithExtends;
+};
 
 export { node };

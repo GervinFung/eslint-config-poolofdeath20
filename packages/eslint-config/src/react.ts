@@ -1,4 +1,4 @@
-import type { TSESLint } from '@typescript-eslint/utils';
+import type { ConfigWithExtends } from 'typescript-eslint';
 
 import { fixupPluginRules } from '@eslint/compat';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
@@ -8,7 +8,7 @@ import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
 
 import { base } from './base';
 
-const react = {
+const react: ConfigWithExtends = {
 	...base,
 	files: ['**/*.tsx'],
 	settings: {
@@ -18,7 +18,7 @@ const react = {
 	},
 	languageOptions: {
 		parserOptions: {
-			...base.languageOptions.parserOptions,
+			...base.languageOptions?.parserOptions,
 			ecmaFeatures: {
 				jsx: true,
 			},
@@ -26,8 +26,6 @@ const react = {
 	},
 	plugins: {
 		...base.plugins,
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-		// @ts-expect-error: Missing types for 'eslint-plugin-react'
 		react: eslintPluginReact,
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 		'react-hooks': fixupPluginRules(eslintPluginReactHooks),
@@ -38,7 +36,6 @@ const react = {
 		...base.rules,
 		...eslintPluginJsxA11y.flatConfigs.strict.rules,
 		...{
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 			...eslintPluginReact.configs.all.rules,
 			'react/jsx-filename-extension': [
 				'error',
@@ -76,6 +73,6 @@ const react = {
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 		...eslintPluginReactHooks.configs.recommended.rules,
 	},
-} as const satisfies TSESLint.FlatConfig.Config;
+};
 
 export { react };
