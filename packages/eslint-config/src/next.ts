@@ -6,7 +6,7 @@ import eslintPluginNext from '@next/eslint-plugin-next';
 
 import { react } from './react';
 
-const next = {
+const next: ConfigWithExtends = {
 	...react,
 	plugins: {
 		...react.plugins,
@@ -19,6 +19,6 @@ const next = {
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 		...eslintPluginNext.configs['core-web-vitals'].rules,
 	},
-} as const satisfies ConfigWithExtends;
+};
 
 export { next };

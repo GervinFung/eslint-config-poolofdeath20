@@ -1,21 +1,9 @@
 import type { ConfigWithExtends } from 'typescript-eslint';
 
-import { fixupPluginRules } from '@eslint/compat';
 // @ts-expect-error: Missing types for 'eslint-plugin-import'
 import eslintPluginImport from 'eslint-plugin-import';
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
-const importRules = Object.keys(eslintPluginImport.rules).reduce(
-	(rules, rule) => {
-		return {
-			...rules,
-			[`import/${rule}`]: 'error',
-		};
-	},
-	{}
-);
-
-const base = {
+const base: ConfigWithExtends = {
 	linterOptions: {
 		reportUnusedDisableDirectives: 'error',
 	},
@@ -26,22 +14,15 @@ const base = {
 		},
 	},
 	plugins: {
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-		import: fixupPluginRules(eslintPluginImport),
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+		import: eslintPluginImport,
 	},
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 	rules: {
 		...{
-			...importRules,
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+			...eslintPluginImport.flatConfigs.recommended.rules,
 			['import/no-unresolved']: 'off',
-			['import/no-nodejs-modules']: 'off',
-			['import/no-internal-modules']: 'off',
-			['import/default']: 'off',
-			['import/namespace']: 'off',
-			['import/no-deprecated']: 'off',
-			['import/prefer-default-export']: 'off',
-			['import/no-named-as-default']: 'off',
-			['import/no-named-as-default-member']: 'off',
-			['import/no-relative-parent-imports']: 'off',
 			'import/max-dependencies': [
 				'error',
 				{
@@ -117,6 +98,6 @@ const base = {
 			},
 		],
 	},
-} as const satisfies ConfigWithExtends;
+};
 
 export { base };
